@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewData["Title"] = "GetCustomer";
+}
+
+<h2>GetUsers</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <h2>Get a Customer</h2>
+            <div class="form-group">
+                <label for="id">Id</label>
+                <input type="text" class="form-control" id="id" />
+            </div>
+            <div>
+                <button class="btn btn-default" id="getCustomer">GetCustomer</button>
+            </div>
+            <div>
+                <p type="text" id="getCustomerResult" />
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+
+    $('#getCustomer').click(function (e) {
+        $("#getCustomerResult").val("");
+        var url = "http://localhost:54241/api/Customers/" + $("#id").val();
+       //change to your url, same for other view.
+        $.ajax({
+            contentType: 'application/json',
+            type: "GET",
+            url: url,
+            success: function (data, textStatus, jqXHR) {
+
+              
+
+                for (var item of Object.keys(data)) {
+                    $("#getCustomerResult").append(item + "<br />");
+                }
+
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                $("#getCustomerResult").val(jqXHR.statusText);
+            }
+        });
+    });
+
+</script>
