@@ -1,0 +1,17 @@
+C:\Users\mark\Documents\revature\pizza(API)\obj\Debug\netcoreapp2.2\pizza(API).csproj.CoreCompileInputs.cache
+C:\Users\mark\Documents\revature\pizza(API)\obj\Debug\netcoreapp2.2\pizza(API).RazorAssemblyInfo.cache
+C:\Users\mark\Documents\revature\pizza(API)\obj\Debug\netcoreapp2.2\pizza(API).RazorAssemblyInfo.cs
+C:\Users\mark\Documents\revature\pizza(API)\obj\Debug\netcoreapp2.2\pizza(API).AssemblyInfoInputs.cache
+C:\Users\mark\Documents\revature\pizza(API)\obj\Debug\netcoreapp2.2\pizza(API).AssemblyInfo.cs
+C:\Users\mark\Documents\revature\pizza(API)\bin\Debug\netcoreapp2.2\pizza(API).deps.json
+C:\Users\mark\Documents\revature\pizza(API)\bin\Debug\netcoreapp2.2\pizza(API).runtimeconfig.json
+C:\Users\mark\Documents\revature\pizza(API)\bin\Debug\netcoreapp2.2\pizza(API).runtimeconfig.dev.json
+C:\Users\mark\Documents\revature\pizza(API)\bin\Debug\netcoreapp2.2\pizza(API).dll
+C:\Users\mark\Documents\revature\pizza(API)\bin\Debug\netcoreapp2.2\pizza(API).pdb
+C:\Users\mark\Documents\revature\pizza(API)\obj\Debug\netcoreapp2.2\pizza(API).RazorTargetAssemblyInfo.cache
+C:\Users\mark\Documents\revature\pizza(API)\obj\Debug\netcoreapp2.2\pizza(API).dll
+C:\Users\mark\Documents\revature\pizza(API)\obj\Debug\netcoreapp2.2\pizza(API).pdb
+C:\Users\mark\Documents\revature\pizza(API)\obj\Debug\netcoreapp2.2\pizza(API).csprojAssemblyReference.cache
+C:\Users\mark\Documents\revature\pizza(API)\bin\Debug\netcoreapp2.2\Entity.dll
+C:\Users\mark\Documents\revature\pizza(API)\bin\Debug\netcoreapp2.2\Entity.pdb
+C:\Users\mark\Documents\revature\pizza(API)\obj\Debug\netcoreapp2.2\pizza(API).csproj.CopyComplete
