@@ -7,13 +7,14 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Net.Http.Headers;
 using Microsoft.AspNetCore.Cors;
+using Entities;
 
 namespace PizzaOrderingUI.Controllers
 {
-   
+
     public class CustomerController : Controller
     {
-        
+
         public ActionResult GetCustomer()
         {
             return View();
@@ -21,6 +22,16 @@ namespace PizzaOrderingUI.Controllers
 
         public ActionResult Register()
         {
+            return View();
+        }
+
+
+
+
+
+        public ActionResult Login()
+        {
+
             return View();
         }
 
@@ -45,7 +56,7 @@ namespace PizzaOrderingUI.Controllers
             //return res;
 
             return "Nothing in this page";
-            
+
 
         }
 
@@ -68,8 +79,8 @@ namespace PizzaOrderingUI.Controllers
         {
             try
             {
-                
-                
+
+
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -78,9 +89,34 @@ namespace PizzaOrderingUI.Controllers
             }
         }
 
+
+
+
         // GET: Customer/Edit/5
         public ActionResult Edit(int id)
         {
+            return View();
+        }
+
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear(); //remove current session
+            return RedirectToAction("Login", "Customer");//redirect to login
+        }
+
+
+
+
+        public IActionResult Session(int id, string Username)
+        {
+            HttpContext.Session.SetString("CustomerId", id.ToString());//set CustomerId value use in Welcome Action
+            HttpContext.Session.SetString("UserName", Username.ToString()); //set UserName value use in Welcome Action
+            return RedirectToAction("Index", "Home"); //redirect to home
+ 
+        }
+        public ActionResult LoginFailed()
+        {
+            ViewBag.LoginFailed = $"Failed, incorrect UserName or Password";
             return View();
         }
 

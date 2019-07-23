@@ -23,13 +23,33 @@ namespace PizzaOrderingUI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.Configure<CookiePolicyOptions>(options =>
+            //services.Configure<CookiePolicyOptions>(options =>
+            //{
+            //    // This lambda determines whether user consent for non-essential cookies is needed for a given request.
+            //    options.CheckConsentNeeded = context => true;
+            //    options.MinimumSameSitePolicy = SameSiteMode.None;
+            //});
+
+            //services.ConfigureApplicationCookie(options =>
+            //{
+            //    options.LoginPath = $"/Customers/Login";
+            //    options.LogoutPath = $"/Customers/Logout";
+            //    options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
+
+            //});
+
+            services.AddSession(options =>
             {
-                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-                options.CheckConsentNeeded = context => true;
-                options.MinimumSameSitePolicy = SameSiteMode.None;
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+
+
             });
 
+
+            services.AddDistributedMemoryCache(); //store item in memory
+
+            services.AddSession();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
@@ -52,7 +72,7 @@ namespace PizzaOrderingUI
             app.UseStaticFiles();
 
             app.UseCookiePolicy();
-         
+            app.UseSession();
 
             app.UseMvc(routes =>
             {

@@ -37,8 +37,8 @@
             success: function (data, textStatus, jqXHR) {
 
               
-
-                for (var item of Object.keys(data)) {
+                
+                for (var item of Object.values(data)) {
                     $("#getCustomerResult").append(item + "<br />");
                 }
 
