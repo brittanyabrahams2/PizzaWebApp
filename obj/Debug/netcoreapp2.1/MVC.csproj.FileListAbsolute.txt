@@ -33,4 +33,9 @@ C:\Users\britt\Desktop\MVC\obj\Debug\netcoreapp2.1\MVC.csproj.CopyComplete
 C:\Users\britt\Desktop\MVC\obj\Debug\netcoreapp2.1\Razor\Views\Menu\Menu.g.cshtml.cs
 C:\Users\britt\Desktop\MVC\obj\Debug\netcoreapp2.1\Razor\Views\Menu\Pizza.g.cshtml.cs
 C:\Users\britt\Desktop\MVC\obj\Debug\netcoreapp2.1\Razor\Views\Menu\Wings.g.cshtml.cs
-C:\Users\britt\Desktop\MVC\obj\Debug\netcoreapp2.1\Razor\Views\Menu\Dessert.g.cshtml.cs
+C:\Users\britt\Desktop\MVC\obj\Debug\netcoreapp2.1\Razor\Views\Menu\Desserts.g.cshtml.cs
+C:\Users\britt\Desktop\MVC\bin\Debug\netcoreapp2.1\Entities.dll
+C:\Users\britt\Desktop\MVC\bin\Debug\netcoreapp2.1\PizzaAPI.dll
+C:\Users\britt\Desktop\MVC\bin\Debug\netcoreapp2.1\Entities.pdb
+C:\Users\britt\Desktop\MVC\bin\Debug\netcoreapp2.1\PizzaAPI.pdb
+C:\Users\britt\Desktop\MVC\bin\Debug\netcoreapp2.1\PizzaAPI.dll.config

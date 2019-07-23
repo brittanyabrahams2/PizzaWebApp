@@ -21,5 +21,17 @@ namespace MVC.Controllers
             return View();
 
         }
+
+        public IActionResult Wings()
+        {
+            return View();
+
+        }
+
+        public IActionResult Desserts()
+        {
+            return View();
+
+        }
     }
 }
