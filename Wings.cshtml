@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewData["Title"] = "Wings";
+}
+
+<h2></h2>
+
+
+<table border="0" width="100%" height="10%">
+    <tr>
+        <td width="13%" align="center" bgcolor="dodgerblue"><b>Serving Options</b></td>
+
+    </tr>
+</table>
+<br />
+
+<table border="0" width="100%" height="10%">
+    <tr>
+        <!-- make  button-->
+        <td width="13%" align="center"><input type="radio" name="servingoptions" value="Small"><b> 6 piece</b><br /></td>
+        <td width="13%" align="center"><input type="radio" name="servingoptions" value="Medium"><b>  8 piece</b><br /></td>
+        <td width="13%" align="center"><input type="radio" name="servingoptions" value="Large"><b>10 piece</b><br /></td>
+        <td width="13%" align="center"><input type="radio" name="servingoptions" value="Extralarge"><b> 12 piece</b><br /></td>
+        <td width="13%" align="center">
+            <form asp-controller="Customer" asp-action="Cart">
+                <input type="submit" align="right" value="Submit" />
+            </form>
+        </td>
+    </tr>
+</table>
+<br />
+
+<table border="0" width="100%" height="10%">
+    <tr>
+        <td width="13%" align="center" bgcolor="dodgerblue"><b>Style</b></td>
+
+    </tr>
+</table>
+<br />
+
+<table border="0" width="100%" height="10%">
+    <tr>
+        <!-- make  button-->
+        <td width="13%" align="center"><input type="radio" name="style" value="Boneless"><b> Boneless</b><br /></td>
+        <td width="13%" align="center"><input type="radio" name="style" value="Traditional"><b> Traditional</b><br /></td>
+        <td width="13%" align="center">
+            <form asp-controller="Customer" asp-action="Cart">
+                <input type="submit" align="right" value="Submit" />
+            </form>
+        </td>
+    </tr>
+</table>
+
+<br />
+<table border="0" width="100%" height="10%">
+    <tr>
+        <td width="13%" align="center" bgcolor="dodgerblue"><b>Sauce</b></td>
+
+    </tr>
+</table>
+<br />
+
+<table border="0" width="100%" height="10%">
+    <tr>
+        <!-- make  button-->
+        <td width="13%" align="center"><img src="https://lh3.googleusercontent.com/BE1X0j0dbyxlxfoDFqL2SCDXEQRMwdeDyfI9iK_lKy5s7YdjfRUyzxHjNoVG1GwrMfcmeHox3C3o18_ns1HGjr5yqSua_rtfZV2flR9CL3lCJa8nfyI6gfADG0BK_eZtr9qU49AZgA=w320-h380"/><input type="radio" name="sauce" value="BBQ"><b> BBQ</b><br /></td>
+        <td width="13%" align="center"><img src="https://lh3.googleusercontent.com/Q16D6U4K2Lvhi2pkffWX03_51x3dr0jKc8LYNdb843vezXFbKatEOySJzpy2tb_52tJ7BU3nytOBDsaa_4tc6BquCALBWZpoE5zjxK2o0Vxmmk3ZVkAy2YXwdgXOIDFRx8W4JU7Naw=w325-h1080"/><input type="radio" name="sauce" value="Plain"><b> Plain</b><br /></td>
+        <td width="13%" align="center"><img src="https://lh3.googleusercontent.com/o-l9ENhmPgIP_XRjgB5zL8_N775DP-ABSsgDLhC5OjlaFq88bgGqygfsSTK_lqdPzKiNabxzfEpErNZEwxrrJrSHUtqTHLzmKN9MyDPnyqqHlG3SVgzdH88jAy2BYMTraVKqFKPsgA=w300-h480"/><input type="radio" name="sauce" value="Hot Buffalo"><b> Hot Buffalo</b><br /></td>
+        <td width="13%" align="center">
+            <form asp-controller="Customer" asp-action="Cart">
+                <input type="submit" align="right" value="Submit" />
+            </form>
+        </td>
+    </tr>
+</table>

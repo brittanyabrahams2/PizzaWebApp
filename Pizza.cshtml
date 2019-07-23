@@ -15,10 +15,10 @@
 <table border="0" width="100%" height="10%">
     <tr>
         <!-- make  button-->
-        <td width="13%" align="center"><input type="radio" name="buildyourown" value="Small">Small<br /></td>
-        <td width="13%" align="center"><input type="radio" name="buildyourown" value="Medium">Medium<br /></td>
-        <td width="13%" align="center"><input type="radio" name="buildyourown" value="Large">Large<br /></td>
-        <td width="13%" align="center"><input type="radio" name="buildyourown" value="Extralarge">Extra Large<br /></td>
+        <td width="13%" align="center"><input type="radio" name="buildyourown" value="Small"><b>Small</b><br /></td>
+        <td width="13%" align="center"><input type="radio" name="buildyourown" value="Medium"><b>Medium</b><br /></td>
+        <td width="13%" align="center"><input type="radio" name="buildyourown" value="Large"><b>Large</b><br /></td>
+        <td width="13%" align="center"><input type="radio" name="buildyourown" value="Extralarge"><b>Extra Large</b><br /></td>
         <td width="13%" align="center">
             <form asp-controller="Customer" asp-action="Cart">
                 <input type="submit" value="Submit" />
@@ -39,9 +39,9 @@
 <table border="0" width="10%" height="10%">
     <tr>
 
-        <td width="10%" align="center"><!--<a asp-area="" asp-controller="Customer" asp-action="Cart">--><img src="https://lh3.googleusercontent.com/ZvWp5Tz_0cOZ_Bsosv3AIjJmP4pgFH3ahtZ1m6SWchpyHXuSG_uCbr0-ef5f0v8U3d9bpJXfpQt1aO-FF78Db47fA7n0i4CAGP77e3aYUQ0Mt1YCaHj7MlbCTVWuCpc7XEn6X8xNRw=w1920-h1080" /><input type="radio" name="specialtypizza" value="Cheese"> Cheese<br><!--</a>--></td>
-        <td width="10%" align="center"><!--<a asp-area="" asp-controller="Customer" asp-action="Cart">--><img src="https://lh3.googleusercontent.com/EfCVh6Wp6X7WIc3ifrXJDK510T-XpPnN3KTPJYiEyJGmQ_qptmHmFH-8EF0pR4bfN9k3Cc3obH62OJvf8C4YpFYVeXtzYfXhizEMaC0-KkAKHi0fOTGOGHTItsjstPBCq12kjRAULg=w290-h1000" /><input type="radio" name="specialtypizza" value="Deluxe">Deluxe<br><!--</a>--></td>
-        <td width="10%" align="center"><!--<a asp-area="" asp-controller="Customer" asp-action="Cart">--><img src="https://lh3.googleusercontent.com/cUuyqlHItXPckQaLxQ4dd3FvmxH6BCcuCVez5hJrCfHK7ShQzg_V4rQOf7oogTpPSW59SiGcRyKyhOhjPZJtKhLfQs7aL6BnyCck-aRohlrOu-6mP5NKPzwzlGRXQWPDlX54SP29Iw=w300-h1080" /><input type="radio" name="specialtypizza" value="Pepperoni">Pepperoni<br /><!--</a>--></td>
+        <td width="10%" align="center"><!--<a asp-area="" asp-controller="Customer" asp-action="Cart">--><img src="https://lh3.googleusercontent.com/ZvWp5Tz_0cOZ_Bsosv3AIjJmP4pgFH3ahtZ1m6SWchpyHXuSG_uCbr0-ef5f0v8U3d9bpJXfpQt1aO-FF78Db47fA7n0i4CAGP77e3aYUQ0Mt1YCaHj7MlbCTVWuCpc7XEn6X8xNRw=w1920-h1080" /><input type="radio" name="specialtypizza" value="Cheese"> <b>Cheese</b><br><!--</a>--></td>
+        <td width="10%" align="center"><!--<a asp-area="" asp-controller="Customer" asp-action="Cart">--><img src="https://lh3.googleusercontent.com/EfCVh6Wp6X7WIc3ifrXJDK510T-XpPnN3KTPJYiEyJGmQ_qptmHmFH-8EF0pR4bfN9k3Cc3obH62OJvf8C4YpFYVeXtzYfXhizEMaC0-KkAKHi0fOTGOGHTItsjstPBCq12kjRAULg=w290-h1000" /><input type="radio" name="specialtypizza" value="Deluxe"><b >Deluxe</b><br><!--</a>--></td>
+        <td width="10%" align="center"><!--<a asp-area="" asp-controller="Customer" asp-action="Cart">--><img src="https://lh3.googleusercontent.com/cUuyqlHItXPckQaLxQ4dd3FvmxH6BCcuCVez5hJrCfHK7ShQzg_V4rQOf7oogTpPSW59SiGcRyKyhOhjPZJtKhLfQs7aL6BnyCck-aRohlrOu-6mP5NKPzwzlGRXQWPDlX54SP29Iw=w300-h1080" /><input type="radio" name="specialtypizza" value="Pepperoni"><b> Pepperoni</b><br /><!--</a>--></td>
         <td width="10%" align="center">
             <form asp-controller="Customer" asp-action="Cart">
                 <input type="submit" value="Submit" />
@@ -56,19 +56,13 @@
 
     </tr>
 </table>
-<br />
-
-
-
-<br />
-
 
 
 <table border="0" width="100%" height="10%">
     <tr>
 
 
-        <td width="10%" align="center"><b>Toppings</b></td>
+        <td width="10%" align="center" bgcolor="grey"><b>Toppings</b></td>
 
 
     </tr>
@@ -109,7 +103,7 @@
     <tr>
 
 
-        <td width="10%" align="center"><b>Sauce</b></td>
+        <td width="10%" align="center" bgcolor="grey"><b>Sauce</b></td>
 
     </tr>
 </table>
@@ -117,9 +111,9 @@
 <br />
 <table border="0" width="100%" height="10%">
     <tr>
-        <td width="10%" align="center"><img src="https://lh3.googleusercontent.com/DrLI0GbtIGYbjpfpLzXeMAogII83IPXJ-vI2DHKC4C0Z7P1OVBHhX1RmPFcMfj2owYai9EvVF9bV99ljOqZYdaaQ3_f4o0KGv3Ic3bJ1xSslMwFppFxVjVWvt3nr0KUC4yIWtvk2ag=w220-h210" /><input type="radio" name="buildyourown" value="Sauce">Spaghetti<br></td>
-        <td width="10%" align="center"><img src="https://lh3.googleusercontent.com/45pV2F2qs5T6RLY2ZO13lLAgHKOVVQ7WPPv1uJh0kz51nsAvpElT0ogp5hg8_bdESa1TB2P_8uwDaDOFbYkncRVvafFIh7OQu8cBFsQJ4w2V5-XDZWTZf0JblRjBTvAWsZ5_ywSL3A=w220-h280" /><input type="radio" name="buildyourown" value="Sauce">BBQ<br></td>
-        <td width="10%" align="center"><img src="https://lh3.googleusercontent.com/ltNZiqKPqSxzAZE2xL2i5REYKCA0856kTyK9S4VxQxdKI8ya_2VdZKeFeiaAppAxfkdXwsMSHL-fcrMfueXzPvmHR_yZkKS36ytxZZG1T9hWj4xsq1btgajzOpwx2E-IwFXYV0qtaw=w220-h180" /><input type="radio" name="buildyourown" value="Sauce">Alfredo<br></td>
+        <td width="10%" align="center"><img src="https://lh3.googleusercontent.com/DrLI0GbtIGYbjpfpLzXeMAogII83IPXJ-vI2DHKC4C0Z7P1OVBHhX1RmPFcMfj2owYai9EvVF9bV99ljOqZYdaaQ3_f4o0KGv3Ic3bJ1xSslMwFppFxVjVWvt3nr0KUC4yIWtvk2ag=w220-h210" /><input type="radio" name="buildyourown" value="Sauce"><b> Spaghetti</b><br></td>
+        <td width="10%" align="center"><img src="https://lh3.googleusercontent.com/45pV2F2qs5T6RLY2ZO13lLAgHKOVVQ7WPPv1uJh0kz51nsAvpElT0ogp5hg8_bdESa1TB2P_8uwDaDOFbYkncRVvafFIh7OQu8cBFsQJ4w2V5-XDZWTZf0JblRjBTvAWsZ5_ywSL3A=w220-h280" /><input type="radio" name="buildyourown" value="Sauce"><b> BBQ</b><br></td>
+        <td width="10%" align="center"><img src="https://lh3.googleusercontent.com/ltNZiqKPqSxzAZE2xL2i5REYKCA0856kTyK9S4VxQxdKI8ya_2VdZKeFeiaAppAxfkdXwsMSHL-fcrMfueXzPvmHR_yZkKS36ytxZZG1T9hWj4xsq1btgajzOpwx2E-IwFXYV0qtaw=w220-h180" /><input type="radio" name="buildyourown" value="Sauce"><b> Alfredo</b><br></td>
         <td width="10%" align="center">
             <form asp-controller="Customer" asp-action="Cart">
                 <input type="submit" value="Submit" />
