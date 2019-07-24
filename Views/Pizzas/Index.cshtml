@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Entity.Pizza>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Size)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ToppingId1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ToppingId2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ToppingId3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ToppingId4)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ToppingId5)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Size)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ToppingId1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ToppingId2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ToppingId3)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ToppingId4)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ToppingId5)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.PizzaId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.PizzaId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.PizzaId">Delete</a>
+                </td>
+            </tr>
+        }
+        <tr>
+            <td>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            </td>
+        </tr>
+    </tbody>
+</table>

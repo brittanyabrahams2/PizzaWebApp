@@ -1,0 +1,86 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        @*<form asp-route-returnUrl="@Model.ReturnUrl" method="post" id="userForm">*@
+        <h4>Create a new account.</h4>
+        <hr />
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+
+        <div class="form-group">
+            <label asp-for="Input.FirstName"></label>
+            <input asp-for="Input.FirstName" class="form-control" id="FirstName" />
+            <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Input.LastName"></label>
+            <input asp-for="Input.LastName" class="form-control" id="LastName" />
+            <span asp-validation-for="Input.LastName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Input.Email"></label>
+            <input asp-for="Input.Email" class="form-control" id="Email" />
+            <span asp-validation-for="Input.Email" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Input.Password"></label>
+            <input asp-for="Input.Password" class="form-control" id="Password" />
+            <span asp-validation-for="Input.Password" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Input.ConfirmPassword"></label>
+            <input asp-for="Input.ConfirmPassword" class="form-control" />
+            <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+        </div>
+        <button class="btn btn-primary" id="create">Register</button>
+        @*</form>*@
+    </div>
+</div>
+<div>
+    <input type="text" class="form-control" id="postResult" />
+</div>
+
+<script>
+    $('#create').click(function (e) {
+        var user = {
+            FirstName: $('#FirstName').val(),
+            LastName: $('#LastName').val(),
+            Email: $('#Email').val(),
+            Password: $('#Password').val(),
+        }
+        console.log(user);
+
+        var url = "http://localhost:1000/api/customer/register";
+ 
+        $.ajax({
+            contentType: 'application/json',
+            type: "POST",
+            url: url,
+            data: JSON.stringify(user),
+
+            success: function (data, textStatus, jqXHR) {
+                //$("#postResult").val("account created ok");
+                window.location.href = '@Url.Action("Index","Home")';
+
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                $("#postResult").val(jqXHR.statusText);
+            }
+        });
+    });
+</script>
+
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+}
