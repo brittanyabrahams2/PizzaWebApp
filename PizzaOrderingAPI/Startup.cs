@@ -29,16 +29,34 @@ namespace PizzaOrderingAPI
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection"), x => x.MigrationsAssembly("PizzaOrderingAPI")));
-
+         
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",
-               builder => builder.WithOrigins("http://localhost:54597")
+               builder => builder.WithOrigins("http://localhost:54597", "http://localhost:4200")
                   .AllowAnyMethod()
                   .AllowAnyHeader()
                   .AllowCredentials());
 
             });
+
+
+            //services.ConfigureApplicationCookie(options =>
+            //{
+            //    options.LoginPath = $"/Customers/Login";
+            //    options.LogoutPath = $"/Customers/Logout";
+            //    options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
+
+            //});
+            services.AddSession(options =>
+            {
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+
+
+            } );
+
+
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
@@ -55,8 +73,14 @@ namespace PizzaOrderingAPI
 
             app.UseDefaultFiles();
             app.UseStaticFiles();
+            app.UseSession();
 
-            app.UseMvc();
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
+            });
         }
     }
 }

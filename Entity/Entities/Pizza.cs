@@ -8,7 +8,13 @@ namespace Entities
 {
     public class Pizza: IPizza
     {
-   
+        //Pizza constructor
+        public Pizza()
+        {
+            ToppingList = new List<Toppping>();
+
+        }
+
         //public properties
         [Key]
         public int PizzaId { get; set; }
@@ -35,12 +41,7 @@ namespace Entities
         public List<Toppping> ToppingList { get; set; }
 
 
-        //Pizza constructor
-        public Pizza()
-        {
-            ToppingList = new List<Toppping>();
-         
-        }
+      
 
         //public methods
 

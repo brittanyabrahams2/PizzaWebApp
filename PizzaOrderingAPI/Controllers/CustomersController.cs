@@ -8,10 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using PizzaOrderingAPI.Models;
 using Microsoft.AspNetCore.Cors;
 using Entities;
+using ApplicationDbContext = PizzaOrderingAPI.Models.ApplicationDbContext;
 
 namespace PizzaOrderingAPI.Controllers
 {
-    
+
     [Route("api/[controller]")]
     [ApiController]
     [EnableCors("CorsPolicy")]
@@ -25,7 +26,7 @@ namespace PizzaOrderingAPI.Controllers
         }
 
         // GET: api/Customers
-        [HttpGet]
+
         public IEnumerable<Customer> GetCustomer()
         {
             return _context.Customer;
@@ -33,8 +34,11 @@ namespace PizzaOrderingAPI.Controllers
 
         // GET: api/Customers/5
         [HttpGet("{id}")]
+       
+
         public async Task<IActionResult> GetCustomer([FromRoute] int id)
         {
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -52,9 +56,36 @@ namespace PizzaOrderingAPI.Controllers
 
 
 
+
+
+
+        [HttpGet("{Username},{Password}")]
+        public IActionResult Login([FromRoute] string Username, string Password)
+        {
+            // check if username and password
+            var customer = _context.Customer
+         .Where(x => x.Username == Username && x.Password == Password).FirstOrDefault();
+           
+
+            if (customer != null)
+            {
+               
+                return Ok(customer);
+
+            }
+            else
+            {
+             
+                return NotFound();
+            }
+
+        }
+       
+
         // PUT: api/Customers/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> Register([FromRoute] int id, [FromBody] Customer customer)
+       
+        public async Task<IActionResult> Edit([FromRoute] int id, [FromBody] Customer customer)
         {
             if (!ModelState.IsValid)
             {
@@ -71,6 +102,7 @@ namespace PizzaOrderingAPI.Controllers
             try
             {
                 await _context.SaveChangesAsync();
+               
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -87,8 +119,8 @@ namespace PizzaOrderingAPI.Controllers
             return NoContent();
         }
 
-        // POST: api/Customers
-        [HttpPost]
+        //POST: api/Customers
+       [HttpPost]
         public async Task<IActionResult> Register([FromBody] Customer customer)
         {
             if (!ModelState.IsValid)

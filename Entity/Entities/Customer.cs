@@ -17,8 +17,8 @@ namespace Entities
             public string Address { get; set; }
             public string State { get; set; }
             public string City { get; set; }
-            public int Zip { get; set; }
-            public int PhoneNo { get; set; }
+            public string Zip { get; set; }
+            public string PhoneNo { get; set; }
 
             public Customer()
             {

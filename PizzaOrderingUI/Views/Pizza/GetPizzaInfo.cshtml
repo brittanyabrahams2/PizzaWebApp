@@ -1,0 +1,91 @@
+﻿@model Entities.ViewModel
+@{
+    ViewData["Title"] = "GetPizzaInfo";
+}
+
+<h2>Create Pizza</h2>
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+ 
+            <div class="form-group">
+              
+                <div id="toppingList">
+                 </div>
+                
+
+            </div>
+            <div>
+                <button class="btn btn-default" id="getPizzaInfo">GetTopping</button>
+            </div>
+            
+        </div>
+
+    </div>
+</div>
+
+<script>
+
+    $(document).ready(function (e) {
+        var url = "http://localhost:54241/api/Pizzas/"
+        //change to your url, same for other view.
+        $.ajax({
+            contentType: 'application/json',
+            type: "GET",
+            url: url,
+            success: function (data, textStatus, jqXHR) {
+                //Size
+                  $("#toppingList").append("<h2>Size:</h2>");
+                  for (var item of Object.values(data.sizes)) {
+                    $("#toppingList").append("<input type='radio' name='size' />");
+                    $("#toppingList").append(`<label>${item.sizeName}($${item.price})</label>`);
+                    }
+                //Crust
+                    $("#toppingList").append("<h2>Crust:</h2>");
+                  for (var item of Object.values(data.crusts)) {
+                    $("#toppingList").append("<input type='radio' name='crust' />");
+                    $("#toppingList").append(`<label>${item.crustName}($${item.price})</label>`);
+                }
+                //Sauce
+                    $("#toppingList").append("<h2>Sauce:</h2>");
+                  for (var item of Object.values(data.sauces)) {
+                    $("#toppingList").append("<input type='radio' name='sauce' />");
+                    $("#toppingList").append(`<label>${item.sauceName}($${item.price})</label>`);
+                }
+                  console.log(data);
+                 //Sauce Amount
+                    $("#toppingList").append("<h2>Sauce Amount:</h2>");
+                  for (var item of Object.values(data.sauceAmounts)) {
+                    $("#toppingList").append("<input type='radio' name='sauceAmount' />");
+                    $("#toppingList").append(`<label>${item.amount}($${item.price})</label>`);
+                }
+
+                   //Cheese Amount
+                    $("#toppingList").append("<h2>Cheese Amount:</h2>");
+                  for (var item of Object.values(data.cheeseAmounts)) {
+                    $("#toppingList").append("<input type='radio' name='cheeseAmount' />");
+                    $("#toppingList").append(`<label>${item.amount}($${item.price})</label>`);
+                   }
+
+                 //Toppings
+
+                    $("#toppingList").append("<h2>Toppings:</h2>");
+                  for (var item of Object.values(data.toppings)) {
+                    $("#toppingList").append("<input type='checkbox' />");
+                    $("#toppingList").append(`<label>${item.toppingName}($${item.toppingPrice})</label>`);
+                   }
+              
+
+              
+              
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                $("#getToppingResult").val(jqXHR.statusText);
+            }
+        });
+    });
+
+</script>

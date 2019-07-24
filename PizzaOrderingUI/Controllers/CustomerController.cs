@@ -9,15 +9,21 @@ using System.Net.Http.Headers;
 using Microsoft.AspNetCore.Cors;
 using Entities;
 
+
 namespace PizzaOrderingUI.Controllers
 {
 
     public class CustomerController : Controller
     {
-
+        
         public ActionResult GetCustomer()
         {
-            return View();
+            if (HttpContext.Session.GetString("UserName") != null)
+            {
+                return View();
+            }
+
+            return Content("You have to login");
         }
 
         public ActionResult Register()
@@ -93,9 +99,14 @@ namespace PizzaOrderingUI.Controllers
 
 
         // GET: Customer/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int id,Customer customer)
         {
-            return View();
+            if (HttpContext.Session.GetString("UserName") != null)
+            {
+                customer.CustomerId = Convert.ToInt32(HttpContext.Session.GetString("CustomerId"));
+             }
+            
+            return View(customer);
         }
 
         public IActionResult Logout()
@@ -104,6 +115,26 @@ namespace PizzaOrderingUI.Controllers
             return RedirectToAction("Login", "Customer");//redirect to login
         }
 
+        public IActionResult Welcome()
+        {
+            if (HttpContext.Session.GetString("UserName") != null)
+            {
+                ViewBag.UserName = HttpContext.Session.GetString("UserName"); //use to display username for upper right nav 
+
+                ViewBag.CustomerId = HttpContext.Session.GetString("CustomerId");//determine differnt nav view for login and logout
+                //also use CustomerId to determine if the user is login or not
+
+                return RedirectToAction($"Edit/{ViewBag.CustomerId}", "Customer");
+
+
+            }
+            else
+            {
+
+                return RedirectToAction("Customers", "Login");
+
+            }
+        }
 
 
 
@@ -129,7 +160,7 @@ namespace PizzaOrderingUI.Controllers
             {
                 // TODO: Add update logic here
 
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("Index", "Home");//redirect to Home
             }
             catch
             {
