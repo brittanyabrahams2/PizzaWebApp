@@ -43,3 +43,4 @@ C:\Users\mark\Documents\revature\pizzaUI\obj\Debug\netcoreapp2.2\Razor\Views\Piz
 C:\Users\mark\Documents\revature\pizzaUI\obj\Debug\netcoreapp2.2\Razor\Views\Pizzas\Details.g.cshtml.cs
 C:\Users\mark\Documents\revature\pizzaUI\obj\Debug\netcoreapp2.2\Razor\Views\Pizzas\Edit.g.cshtml.cs
 C:\Users\mark\Documents\revature\pizzaUI\obj\Debug\netcoreapp2.2\Razor\Views\Pizzas\Index.g.cshtml.cs
+C:\Users\mark\Documents\revature\pizzaUI\obj\Debug\netcoreapp2.2\Razor\Views\Pizzas\create2.g.cshtml.cs

@@ -55,10 +55,11 @@
             LastName: $('#LastName').val(),
             Email: $('#Email').val(),
             Password: $('#Password').val(),
+
         }
         console.log(user);
 
-        var url = "http://localhost:1000/api/customer/register";
+        var url = "http://localhost:60519/api/customer/register";
  
         $.ajax({
             contentType: 'application/json',

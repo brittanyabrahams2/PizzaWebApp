@@ -4,7 +4,7 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>start a new order</h1>
 
 <h4>Pizza</h4>
 <hr />
@@ -12,40 +12,71 @@
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @*<div class="form-group">
+            <label asp-for="Price" class="control-label"></label>
+            <input asp-for="Price" class="form-control" />
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>*@
             <div class="form-group">
-                <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" />
-                <span asp-validation-for="Price" class="text-danger"></span>
+                <h3>sizes:</h3>
+                <div>
+                    <b>small</b>
+                    <input type="radio" asp-for="Size" value="small" class="form-control" />
+                </div>
+                <b>medium</b>
+
+                <input type="radio" asp-for="Size" value="medium" class="form-control" />
+                <b>large</b>
+
+                <input type="radio" asp-for="Size" value="large" class="form-control" />
+            </div>
+            
+                <div class="form-group">
+                    <select asp-for="ToppingId1">
+                        <option value="1">Pepperoni</option>
+                        <option value="2">pineapple</option>
+                        <option value="3">mushroom</option>
+                        <option value="4">chicken</option>
+                        <option value="5">bacon</option>
+                    </select>
+                </div>
+            
+
+            <div class="form-group">
+                <select asp-for="ToppingId2">
+                    <option value="1">Pepperoni</option>
+                    <option value="2">pineapple</option>
+                    <option value="3">mushroom</option>
+                    <option value="4">chicken</option>
+                    <option value="5">bacon</option>
+                </select>
             </div>
             <div class="form-group">
-                <label asp-for="Size" class="control-label"></label>
-                <input asp-for="Size" class="form-control" />
-                <span asp-validation-for="Size" class="text-danger"></span>
+                <select asp-for="ToppingId3">
+                    <option value="1">Pepperoni</option>
+                    <option value="2">pineapple</option>
+                    <option value="3">mushroom</option>
+                    <option value="4">chicken</option>
+                    <option value="5">bacon</option>
+                </select>
             </div>
             <div class="form-group">
-                <label asp-for="ToppingId1" class="control-label"></label>
-                <input asp-for="ToppingId1" class="form-control" />
-                <span asp-validation-for="ToppingId1" class="text-danger"></span>
+                <select asp-for="ToppingId4">
+                    <option value="1">Pepperoni</option>
+                    <option value="2">pineapple</option>
+                    <option value="3">mushroom</option>
+                    <option value="4">chicken</option>
+                    <option value="5">bacon</option>
+                </select>
             </div>
             <div class="form-group">
-                <label asp-for="ToppingId2" class="control-label"></label>
-                <input asp-for="ToppingId2" class="form-control" />
-                <span asp-validation-for="ToppingId2" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ToppingId3" class="control-label"></label>
-                <input asp-for="ToppingId3" class="form-control" />
-                <span asp-validation-for="ToppingId3" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ToppingId4" class="control-label"></label>
-                <input asp-for="ToppingId4" class="form-control" />
-                <span asp-validation-for="ToppingId4" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ToppingId5" class="control-label"></label>
-                <input asp-for="ToppingId5" class="form-control" />
-                <span asp-validation-for="ToppingId5" class="text-danger"></span>
+                <select asp-for="ToppingId5">
+                    <option value="1">Pepperoni</option>
+                    <option value="2">pineapple</option>
+                    <option value="3">mushroom</option>
+                    <option value="4">chicken</option>
+                    <option value="5">bacon</option>
+                </select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

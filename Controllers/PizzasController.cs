@@ -18,7 +18,6 @@ namespace pizzaUI.Controllers
     {
         private readonly ApplicationDbContext _context;
         private string _url = "http://localhost:60519/";
-        HttpClient client = new HttpClient();
 
 
         //public PizzasController(ApplicationDbContext context)
@@ -99,6 +98,29 @@ namespace pizzaUI.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("PizzaId,Price,Size,ToppingId1,ToppingId2,ToppingId3,ToppingId4,ToppingId5")] Pizza pizza)
+        {
+            using (var client = new HttpClient())
+            {
+                var apiUrl = "api/pizzas";
+                client.BaseAddress = new Uri(_url+apiUrl);
+                //HTTP GET
+                // PizzaAPI.Controllers.CustomerController c = new PizzaAPI.Controllers.CustomerController(_context);
+                var postTask = client.PostAsJsonAsync("pizzas", pizza);
+                postTask.Wait();
+                var result = postTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+                    return RedirectToAction("Index");
+                }
+                ModelState.AddModelError(string.Empty, "Server Error. Please contact administrator.");
+            }
+            return View(pizza);
+        }        // GET: Pizzas/Create
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create2([Bind("PizzaId,Price,Size,ToppingId1,ToppingId2,ToppingId3,ToppingId4,ToppingId5")] Pizza pizza)
         {
             using (var client = new HttpClient())
             {
