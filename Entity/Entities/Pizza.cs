@@ -40,6 +40,8 @@ namespace Entities
         [NotMapped]
         public List<Toppping> ToppingList { get; set; }
 
+        [NotMapped]
+        public List<Pizza> Pizzas { get; set; }
 
       
 
