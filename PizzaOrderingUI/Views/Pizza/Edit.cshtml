@@ -1,0 +1,59 @@
+﻿@model Entities.Pizza
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h4>Edit</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="PizzaId" />
+
+
+            <div class="form-group">
+                <label asp-for="Topping1" class="control-label"></label>
+                <input asp-for="Topping1" class="form-control" />
+                <span asp-validation-for="Topping1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Topping2" class="control-label"></label>
+                <input asp-for="Topping2" class="form-control" />
+                <span asp-validation-for="Topping2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Topping3" class="control-label"></label>
+                <input asp-for="Topping3" class="form-control" />
+                <span asp-validation-for="Topping3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Topping4" class="control-label"></label>
+                <input asp-for="Topping4" class="form-control" />
+                <span asp-validation-for="Topping4" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Topping5" class="control-label"></label>
+                <input asp-for="Topping5" class="form-control" />
+                <span asp-validation-for="Topping5" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="CreatePizzaIndex">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

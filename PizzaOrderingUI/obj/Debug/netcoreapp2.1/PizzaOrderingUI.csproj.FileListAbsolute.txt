@@ -54,7 +54,9 @@ C:\Users\z8410\Desktop\copyPizzaOrderingAPI\PizzaOrderingAPI\PizzaOrderingUI\obj
 C:\Users\z8410\Desktop\copyPizzaOrderingAPI\PizzaOrderingAPI\PizzaOrderingUI\obj\Debug\netcoreapp2.1\PizzaOrderingUI.TagHelpers.output.cache
 C:\Users\z8410\Desktop\copyPizzaOrderingAPI\PizzaOrderingAPI\PizzaOrderingUI\obj\Debug\netcoreapp2.1\PizzaOrderingUI.RazorCoreGenerate.cache
 C:\Users\z8410\Desktop\copyPizzaOrderingAPI\PizzaOrderingAPI\PizzaOrderingUI\obj\Debug\netcoreapp2.1\Razor\Views\Customer\DeleteCustomer.g.cshtml.cs
+C:\Users\z8410\Desktop\copyPizzaOrderingAPI\PizzaOrderingAPI\PizzaOrderingUI\obj\Debug\netcoreapp2.1\Razor\Views\Customer\Edit.g.cshtml.cs
 C:\Users\z8410\Desktop\copyPizzaOrderingAPI\PizzaOrderingAPI\PizzaOrderingUI\obj\Debug\netcoreapp2.1\Razor\Views\Customer\GetCustomer.g.cshtml.cs
+C:\Users\z8410\Desktop\copyPizzaOrderingAPI\PizzaOrderingAPI\PizzaOrderingUI\obj\Debug\netcoreapp2.1\Razor\Views\Customer\Login.g.cshtml.cs
 C:\Users\z8410\Desktop\copyPizzaOrderingAPI\PizzaOrderingAPI\PizzaOrderingUI\obj\Debug\netcoreapp2.1\Razor\Views\Customer\Register.g.cshtml.cs
 C:\Users\z8410\Desktop\copyPizzaOrderingAPI\PizzaOrderingAPI\PizzaOrderingUI\obj\Debug\netcoreapp2.1\Razor\Views\Home\About.g.cshtml.cs
 C:\Users\z8410\Desktop\copyPizzaOrderingAPI\PizzaOrderingAPI\PizzaOrderingUI\obj\Debug\netcoreapp2.1\Razor\Views\Home\Contact.g.cshtml.cs
@@ -72,6 +74,8 @@ C:\Users\z8410\Desktop\copyPizzaOrderingAPI\PizzaOrderingAPI\PizzaOrderingUI\obj
 C:\Users\z8410\Desktop\copyPizzaOrderingAPI\PizzaOrderingAPI\PizzaOrderingUI\obj\Debug\netcoreapp2.1\PizzaOrderingUI.csproj.CopyComplete
 C:\Users\z8410\Desktop\copyPizzaOrderingAPI\PizzaOrderingAPI\PizzaOrderingUI\obj\Debug\netcoreapp2.1\PizzaOrderingUI.dll
 C:\Users\z8410\Desktop\copyPizzaOrderingAPI\PizzaOrderingAPI\PizzaOrderingUI\obj\Debug\netcoreapp2.1\PizzaOrderingUI.pdb
-C:\Users\z8410\Desktop\copyPizzaOrderingAPI\PizzaOrderingAPI\PizzaOrderingUI\obj\Debug\netcoreapp2.1\Razor\Views\Customer\Login.g.cshtml.cs
+C:\Users\z8410\Desktop\copyPizzaOrderingAPI\PizzaOrderingAPI\PizzaOrderingUI\obj\Debug\netcoreapp2.1\Razor\Views\Pizza\CreatePizzaIndex.g.cshtml.cs
 C:\Users\z8410\Desktop\copyPizzaOrderingAPI\PizzaOrderingAPI\PizzaOrderingUI\obj\Debug\netcoreapp2.1\Razor\Views\Pizza\GetPizzaInfo.g.cshtml.cs
-C:\Users\z8410\Desktop\copyPizzaOrderingAPI\PizzaOrderingAPI\PizzaOrderingUI\obj\Debug\netcoreapp2.1\Razor\Views\Customer\Edit.g.cshtml.cs
+C:\Users\z8410\Desktop\copyPizzaOrderingAPI\PizzaOrderingAPI\PizzaOrderingUI\obj\Debug\netcoreapp2.1\Razor\Views\Pizza\Details.g.cshtml.cs
+C:\Users\z8410\Desktop\copyPizzaOrderingAPI\PizzaOrderingAPI\PizzaOrderingUI\obj\Debug\netcoreapp2.1\Razor\Views\Pizza\Edit.g.cshtml.cs
+C:\Users\z8410\Desktop\copyPizzaOrderingAPI\PizzaOrderingAPI\PizzaOrderingUI\obj\Debug\netcoreapp2.1\Razor\Views\Pizza\Delete.g.cshtml.cs

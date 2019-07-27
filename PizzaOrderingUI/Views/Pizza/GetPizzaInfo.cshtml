@@ -5,7 +5,7 @@
 
 <h2>Create Pizza</h2>
 
-<div class="container">
+@*<div class="container">
     <table border="0" width="100%" height="10%">
         <tr>
             <td width="13%" align="center" bgcolor="dodgerblue"><font color="white"><b>Size</b></font></td>
@@ -14,33 +14,39 @@
     </table>
     <br />
 
- </div>
+ </div>*@
 
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
+             
 
-                <div class="form-group">
+                    <div class="form-group">
 
-                    <form id="toppingList"></form>
+                        <div id="toppingList"></div>
 
-                    <div id="shoppingcart"></div>
+                        <div id="shoppingcart"></div>
 
 
-                </div>
-                <div>
-                    <button class="btn btn-default" id="addPizza">Add Pizza</button>
-                </div>
-
+                    </div>
+                    <div>
+                        <button class="btn btn-default" id="addPizza">Add Pizza</button>
+                    </div>
+             
             </div>
-
+          
         </div>
+
     </div>
 
+
+
     <script>
-        var totalPrice = 0;
+ 
+
+
         $(document).ready(function (e) {
-            var url = "http://localhost:54241/api/Pizzas/"
+            var url = "http://localhost:54241/api/Pizzas/GetPizzaInfo";
             //change to your url, same for other view.
             $.ajax({
                 contentType: 'application/json',
@@ -48,100 +54,95 @@
                 url: url,
                 success: function (data, textStatus, jqXHR) {
 
-
                     var Id = 0;
                     //Size
 
-                    $("#toppingList").append(`
-                    <div class="container">
-                     <table border="0" width="100%" height="10%">
-                          <tr>
-                                <td width="13%" align="center" bgcolor="dodgerblue"><font color="white"><b>Size</b></font></td>
-                         </tr>
-                    </table>
-                    <br />`
-                    );
-
+                    $("#toppingList").append("<h2>Size</h2>");
                     for (var item of Object.values(data.sizes)) {
 
-                        $("#toppingList").append(`<td width="13%" align="center"> <input id='size${++Id}' type='radio' name='size' value="${item.sizeName}" /> `);
-                        $("#toppingList").append(`<label>${item.sizeName}($${item.price})</label> </td>`);
-
+                        $("#toppingList").append(`<input id='size${++Id}' type='radio' name='size' value="${item.id}" /> `);
+                        $("#toppingList").append(`<label>${item.sizeName}($${item.price})</label>`);
                     }
 
                     $('#size1').attr('checked', 'checked');
-                    $("#toppingList").append(`</div>`);
-                    totalPrice += 6.5;
-                    sizeId = 0;
+         
+                    Id = 0;
 
                     //Crust
-                     $("#toppingList").append("<h2>Crust:</h2>");
-                     $("#toppingList").append(`
-                    <div class="container">
-                     <table border="0" width="100%" height="10%">
-                          <tr>
-                                <td width="13%" align="center" bgcolor="dodgerblue"><font color="white"><b>Size</b></font></td>
-                         </tr>
-                    </table>
-                    <br />`
-                    );
-
+                   
+                
+                       $("#toppingList").append("<h2>Crust</h2>");
                    
                     for (var item of Object.values(data.crusts)) {
-                        $("#toppingList").append(`<input id='crust${++Id}' type='radio' name='crust' />`);
+                        $("#toppingList").append(`<input id='crust${++Id}' type='radio' name='crust' value="${item.id}"  />`);
                         $("#toppingList").append(`<label>${item.crustName}($${item.price})</label>`);
+                        console.log("Curst: " + item.id);
                     }
 
                     $('#crust1').attr('checked', 'checked');
-                    $("#toppingList").append(`</div>`);
-                    totalPrice += 1.5;
-                    sizeId = 0;
+                 
+          
+                    Id = 0;
 
 
                     //Sauce
 
-                      $("#toppingList").append("<h2>Sauce:</h2>");
-                     $("#toppingList").append(`
-                    <div class="container">
-                     <table border="0" width="100%" height="10%">
-                          <tr>
-                                <td width="13%" align="center" bgcolor="dodgerblue"><font color="white"><b>Size</b></font></td>
-                         </tr>
-                    </table>
-                    <br />`
-                    );
+                     
+                   
                     $("#toppingList").append("<h2>Sauce:</h2>");
                     for (var item of Object.values(data.sauces)) {
-                        $("#toppingList").append("<input type='radio' name='sauce' />");
+                        $("#toppingList").append(`<input type='radio' name='sauce' id='sauce${++Id}' value="${item.id}" />`);
                         $("#toppingList").append(`<label>${item.sauceName}($${item.price})</label>`);
                     }
-                    console.log(data);
 
+                     $('#sauce1').attr('checked', 'checked');
+                   
+                  
+                    Id = 0;
+                  
 
                     //Sauce Amount
                     $("#toppingList").append("<h2>Sauce Amount:</h2>");
                     for (var item of Object.values(data.sauceAmounts)) {
-                        $("#toppingList").append("<input type='radio' name='sauceAmount' />");
+                        $("#toppingList").append(`<input type='radio' id='sauceAmount${++Id}' name='sauceAmount' value="${item.id}"/>`);
                         $("#toppingList").append(`<label>${item.amount}($${item.price})</label>`);
                     }
+                       $('#sauceAmount1').attr('checked', 'checked');
+                   
+                    
+                    Id = 0;
+             
 
                     //Cheese Amount
+
                     $("#toppingList").append("<h2>Cheese Amount:</h2>");
                     for (var item of Object.values(data.cheeseAmounts)) {
-                        $("#toppingList").append("<input type='radio' name='cheeseAmount' />");
+                        $("#toppingList").append(`<input type='radio' id='cheeseAmount${++Id}' name='cheeseAmount' value="${item.id}" />`);
                         $("#toppingList").append(`<label>${item.amount}($${item.price})</label>`);
                     }
+                       $('#cheeseAmount1').attr('checked', 'checked');
+                   
+                    
+                    Id = 0;
+                    
+
 
                     //Toppings
 
                     $("#toppingList").append("<h2>Toppings:</h2>");
                     for (var item of Object.values(data.toppings)) {
-                        $("#toppingList").append("<input type='checkbox' />");
+                        $("#toppingList").append(`<input type='checkbox' name='ToppingList' id='topping${++Id}'value="${item.id}"/>`);
                         $("#toppingList").append(`<label>${item.toppingName}($${item.toppingPrice})</label>`);
+                        
                     }
+                   
 
-                    //Total Price
-                    $("#toppingList").append(`<h2>Total: ${totalPrice}</h2>`);
+                    $('#topping1').attr('checked', 'checked');
+                     $('#topping2').attr('checked', 'checked');
+                   
+                  
+                    Id = 0;
+                   
 
 
 
@@ -156,11 +157,59 @@
 
         $('#addPizza').click(function (e) {
 
-            var radioValue = $("input[name='size']:checked").val();
-            $("#shoppingcart").append("<p>" + "Size: " + radioValue + "</p>");
+            var sizeid = parseInt($("input[name='size']:checked").val());
+            var sauceAmountid =  parseInt($("input[name='sauceAmount']:checked").val());
+            var sauceid =  parseInt($("input[name='sauce']:checked").val());
+            var cheeseAmountid =   parseInt($("input[name='cheeseAmount']:checked").val());
+            var crustid = parseInt($("input[name='crust']:checked").val());
+            var list = [];
+             $.each($("input[name='ToppingList']:checked"), function () {
+                 list.push($(this).val());
+              });
 
 
-            console.log(radioValue);
+            var url = "http://localhost:54241/api/Pizzas/";
+         
+        $.ajax({
+            contentType: 'application/json',
+            type: "POST",
+            url: url,
+            data: JSON.stringify({
+                SizeId: sizeid,
+                SauceId:sauceid,
+                SauceAmountId: sauceAmountid,
+                CheeseAmountId: cheeseAmountid,
+                CrustId: crustid,
+                OrderId: 100,
+                ToppingCount: list.length,
+                Price: 0,
+                ToppinIdList: list
+
+            }),
+
+           
+            success: function (data, textStatus, jqXHR) {
+              
+                console.log("Create pizza..");
+                console.log(data.PizzaId);
+                $.get("/Customer/OrderSession/", { OrderId: 100 }, function (data) {
+            
+                  
+             });  
+                window.location.href = "http://localhost:54597/Pizza/CreatePizzaIndex/" + data.PizzaId;
+              
+          
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                $("#postResult").val(jqXHR.statusText);
+             
+            }
+        });
+
+            console.log(Math.floor((Math.random() * 2000000000) + 10000000));
+            $("#shoppingcart").append("<p>" + "Size: " + sizeid + "</p>");
+                
+
 
         });
 

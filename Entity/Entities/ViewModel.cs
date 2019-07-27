@@ -12,8 +12,7 @@ namespace Entities
         public IEnumerable<SauceAmount> sauceAmounts { get; set; }
         public IEnumerable<Toppping> toppings { get; set; }
         public IEnumerable<CheeseAmount> cheeseAmounts { get; set; }
-       
-
+ 
 
     }
 }

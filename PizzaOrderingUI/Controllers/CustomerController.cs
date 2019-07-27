@@ -47,7 +47,7 @@ namespace PizzaOrderingUI.Controllers
         }
 
 
-        private string _url = "http://localhost:54241/";
+       
         // GET: Customer
         public string Index()
         {
@@ -144,6 +144,12 @@ namespace PizzaOrderingUI.Controllers
             HttpContext.Session.SetString("UserName", Username.ToString()); //set UserName value use in Welcome Action
             return RedirectToAction("Index", "Home"); //redirect to home
  
+        }
+
+        public IActionResult OrderSession(int OrderId)
+        {
+            HttpContext.Session.SetInt32("OrderId", OrderId);
+            return View();
         }
         public ActionResult LoginFailed()
         {

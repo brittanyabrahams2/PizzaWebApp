@@ -5,40 +5,104 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Entities;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using Microsoft.AspNetCore.Http;
 
 namespace PizzaOrderingUI.Controllers
 {
     public class PizzaController : Controller
     {
-
-        public ActionResult GetPizzaInfo()
+        private string _url = "http://localhost:54241/";
+        public async Task<IActionResult> CreatePizzaIndex()
         {
-
-            return View();
+            IEnumerable<Pizza> pizzas = null;
+            using (var client = new HttpClient())
+            {
+                var apiUrl = "api/pizzas";
+                client.BaseAddress = new Uri(_url + apiUrl);
+                //HTTP GET
+                // PizzaAPI.Controllers.CustomerController c = new PizzaAPI.Controllers.CustomerController(_context);
+                var responseTask = client.GetAsync("pizzas");
+                responseTask.Wait();
+                var result = responseTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+                    var readTask = result.Content.ReadAsAsync<IList<Pizza>>();
+                    readTask.Wait();
+                    pizzas = readTask.Result;
+                }
+                else //web api sent error response
+                {
+                    //log response status here..
+                    ModelState.AddModelError(string.Empty, "Server error. Please contact administrator.");
+                }
+            }
+            var s = HttpContext.Session.GetInt32("OrderId");
+            //return View(pizzas.Where(id => id.OrderId == HttpContext.Session.GetInt32("OrderId")));
+            return View(pizzas);
         }
 
         // GET: Pizza
         public ActionResult Index()
         {
+
             return View();
         }
 
-        // GET: Pizza/Details/5
-        public ActionResult Details(int id)
+        public ActionResult GetPizzaInfo()
         {
-            return View();
+            if (HttpContext.Session.GetString("CustomerId") != null)
+            {
+                return View();
+            }
+            return Content("You can not order pizza without login");
+        }
+
+
+        // GET: Pizza/Details/5
+        public async Task<IActionResult> Details(int? id)
+        {
+            Pizza pizza = null;
+            using (var client = new HttpClient())
+            {
+                var apiUrl = "api/pizzas";
+                client.BaseAddress = new Uri(_url + apiUrl);
+                //HTTP GET
+                // PizzaAPI.Controllers.CustomerController c = new PizzaAPI.Controllers.CustomerController(_context);
+                var responseTask = client.GetAsync("pizzas/" + id);
+                responseTask.Wait();
+                var result = responseTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+                    var readTask = result.Content.ReadAsAsync<Pizza>();
+                    readTask.Wait();
+                    pizza = readTask.Result;
+                }
+                else //web api sent error response
+                {
+                    //log response status here..
+                    ModelState.AddModelError(string.Empty, "Server error. Please contact administrator.");
+                }
+            }
+
+            return View(pizza);
         }
 
         // GET: Pizza/Create
-        public ActionResult Create()
+        public ActionResult CreatePizza()
         {
-            return View();
+            if (HttpContext.Session.GetString("CustomerId") != null)
+            {
+                return View();
+            }
+            return Content("You can not create pizza without login");
         }
 
         // POST: Pizza/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(IFormCollection collection,int[] ToppingList)
         {
             try
             {
@@ -53,50 +117,66 @@ namespace PizzaOrderingUI.Controllers
         }
 
         // GET: Pizza/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<IActionResult> Edit(int? id)
         {
-            return View();
+            return await Details(id);
         }
 
-        // POST: Pizza/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<IActionResult> Edit(int id, [Bind("PizzaId,Price,Size,ToppingId1,ToppingId2,ToppingId3,ToppingId4,ToppingId5")] Pizza pizza)
         {
-            try
+            using (var client = new HttpClient())
             {
-                // TODO: Add update logic here
+                var apiUrl = "api/pizzas";
+                client.BaseAddress = new Uri(_url + apiUrl);
 
-                return RedirectToAction(nameof(Index));
+                //HTTP POST
+                var putTask = client.PutAsJsonAsync<Pizza>("pizzas/" + id, pizza);
+                putTask.Wait();
+
+                var result = putTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+
+                    return RedirectToAction("CreatePizzaIndex");
+                }
             }
-            catch
-            {
-                return View();
-            }
+            return View(pizza);
         }
 
-        // GET: Pizza/Delete/5
-        public ActionResult Delete(int id)
+        // GET: Pizzas/Delete/5
+        public async Task<IActionResult> Delete(int? id)
         {
-            return View();
+            return await Details(id);
+
         }
 
-        // POST: Pizza/Delete/5
-        [HttpPost]
+        // POST: Pizzas/Delete/5
+        [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            try
+            using (var client = new HttpClient())
             {
-                // TODO: Add delete logic here
-               
-                return RedirectToAction(nameof(Index));
-                
+
+                //HTTP DELETE
+                var apiUrl = "api/pizzas";
+                client.BaseAddress = new Uri(_url + apiUrl);
+
+
+                var deleteTask = client.DeleteAsync("pizzas/" + id.ToString());
+                deleteTask.Wait();
+
+                var result = deleteTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+
+                    return RedirectToAction("CreatePizzaIndex");
+                }
             }
-            catch
-            {
-                return View();
-            }
+
+            return await Delete(id);
         }
     }
 }

@@ -1,0 +1,67 @@
+﻿@model Entities.Pizza;
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<h1>Details</h1>
+
+<div>
+    <h4>Pizza</h4>
+    <hr />
+    <dl class="row">
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SizeId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SizeId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Topping1)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Topping1)
+        </dd>
+      
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Topping2)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Topping2)
+        </dd>
+        
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Topping3)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Topping3)
+        </dd>
+       
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Topping4)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Topping4)
+        </dd>
+       
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Topping5)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Topping5)
+        </dd>
+ 
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+      
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.PizzaId">Edit</a> |
+    <a asp-action="CreatePizzaIndex">Back to List</a>
+</div>
