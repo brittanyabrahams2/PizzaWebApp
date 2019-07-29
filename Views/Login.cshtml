@@ -1,0 +1,147 @@
+﻿@using Microsoft.AspNetCore.Http
+
+@model Entities.Customer
+
+@{
+
+    ViewData["Title"] = "Login";
+
+}
+
+<h2>Login</h2>
+    <div class="row">
+
+        <div class="col-md-4 ">
+
+
+
+            <div class="form-group">
+
+                <label asp-for="Username" label class="control-label">UserName</label>
+
+                <input asp-for="Username" id="username" class="form-control" placeholder="Enter User Name">
+
+                <span asp-validation-for="Username" class="text-danger"></span>
+
+            </div>
+            <br />
+
+
+            <div class="form-group">
+
+                <label asp-for="Password" class="control-label">Password</label>
+
+                <input asp-for="Password" id="password" type="password" class="form-control" placeholder="Enter Password">
+
+                <span asp-validation-for="Password" class="text-danger"></span>
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <input id="login" type="submit" value="Login" class="btn btn-default" />
+
+            </div>
+
+            <p id="result"></p>
+
+
+
+            <div class="form-group">
+
+                <div class="col-md-offset-2 col-md-8">
+
+                    <label class="label-success">@ViewBag.LoginSucceed</label>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="form-group">
+
+                <div class="col-md-offset-2 col-md-8">
+
+                    <label class="label-danger" id="loginfailed">Wrong username or password</label>
+
+                </div>
+
+            </div>
+            <input type="hidden" name="id">
+
+        </div>
+
+    </div>
+
+<script>
+
+    $("#loginfailed").hide();
+
+    $('#login').click(function (e) {
+
+          $("result").val("");
+
+        var url = "https://localhost:58755/api/Customers/" + $('#username').val() + ',' + $('#password').val();
+
+
+
+
+
+        $.ajax({
+
+            contentType: 'application/json',
+
+            type: "GET",
+
+            url: url,
+
+
+
+            success: function (data, textStatus, jqXHR) {
+
+                alert('Success');
+
+                $.get("/Customer/Session/", { id: data.customerId, username: data.username }, function (data) {
+                    alert('redirecting');
+                    window.location.href = "http://localhost:5001/Home/Index";
+
+
+
+             });
+
+
+
+
+
+            },
+
+            error: function (jqXHR, textStatus, errorThrown) {
+
+                alert('Error');
+
+                $("#result").val(jqXHR.statusText);
+
+                $("#loginfailed").show();
+
+                //display loginfailed message to user
+
+                $.get("/Customer/LoginFailed",{}, function (data) {
+
+
+
+
+
+                 });
+
+
+
+            }
+
+        });
+
+    });
+
+</script>

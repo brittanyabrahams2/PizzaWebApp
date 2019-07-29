@@ -1,0 +1,125 @@
+﻿
+@{
+    ViewData["Title"] = "Payment";
+}
+
+<h2>Make Payment</h2>
+
+<table>
+    <tr>
+        <td width="13%" align="center" bgcolor="dodgerblue">
+            <font color="white"><b>Order</b></font>
+        </td>
+    </tr>
+</table>
+
+<div class="container">
+    @*<div class="form-group">
+
+        <label for="customerId"><b>Customer</b></label>
+
+        <input type="text" class="form-control" id="customer" />
+
+    </div>*@
+
+    <br />
+    <div class="form-group">
+
+        <label for="cardno"><b>CardNo.</b></label>
+
+        <input type="text" class="form-control" id="cardno" />
+
+    </div>
+    <br />
+    <div class="form-group">
+
+        <label for="cvv"><b>CVV &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+
+        <input type="text" class="form-control" id="cvv" />
+
+    </div>
+    <div class="form-group">
+
+        <label for="exdate"><b>Expiration Date </b> </label>
+
+        <input type="text" class="form-control" id="exdate" />
+
+    </div>
+    <br />
+    <br />
+    <div class="form-group">
+
+        <label for="address"><b>Address </b> </label>
+
+        <input type="text" class="form-control" id="address" />
+
+    </div>
+    <br />
+    -----------------------------------------------------------------------------------------------------------------------------------------------
+    <div class="form-group">
+
+        <label for="amount"><b>Amount </b> </label>
+
+        <input type="text" class="form-control" id="amount" />
+
+    </div>
+    <br />
+    <div>
+
+        <button class="btn btn-default" id="payment">Place Order</button>
+
+    </div>
+
+</div>
+<script>
+
+    $('#payment').click(function (e) {
+
+        var url = "https://localhost:58755/api/payments/";
+
+        $.ajax({
+
+            contentType: 'application/json',
+
+            type: "POST",
+
+            url: url,
+
+            data: JSON.stringify({
+
+               //Customer: $('#customer').val(),
+
+                CardNo: $('#cardno').val(),
+
+
+
+                ExpirationDate: $('#exdate').val(),
+
+                CVV: $('#cvv').val(),
+
+                Amount: $('#amount').val(),
+
+            }),
+
+
+
+            success: function (data, textStatus, jqXHR) {
+
+                $("#postResult").val("Payment accepted. Id=" + jqXHR.responseText);
+
+
+            },
+
+            error: function (jqXHR, textStatus, errorThrown) {
+
+                $("#postResult").val(jqXHR.statusText);
+
+
+                 console.log(data);
+            }
+
+        });
+
+    });
+
+</script>

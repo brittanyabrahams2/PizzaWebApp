@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewData["Title"] = "Cart";
+}
+
+<h2>Order Details</h2>
+
+<div class="container">
+
+
+    <table border="0" width="100%" height="10%">
+
+        <tr>
+
+            <td width="13%" align="center" bgcolor="dodgerblue"><font color="white"><b>Item</b></font></td>
+            <td width="13%" align="center" bgcolor="dodgerblue"><font color="white"><b>Price</b></font></td>
+            <td width="13%" align="center" bgcolor="dodgerblue"><font color="white"><b>Qunatity</b></font></td>
+
+
+
+        </tr>
+
+    </table>
+
+    <br />
+
+
+
+</div>
+
+
+<div>
+    @Html.ActionLink("Proceed to Checkout", "Payment", new { /* id = Model.PrimaryKey */ })
+
+</div>
