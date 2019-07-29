@@ -12961,11 +12961,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mark\\Documents\\revature\\pizza(API)\\pizza(API).csproj",
+      "projectUniqueName": "C:\\Users\\mark\\Documents\\revature\\pizza_API\\pizza(API).csproj",
       "projectName": "pizza(API)",
-      "projectPath": "C:\\Users\\mark\\Documents\\revature\\pizza(API)\\pizza(API).csproj",
+      "projectPath": "C:\\Users\\mark\\Documents\\revature\\pizza_API\\pizza(API).csproj",
       "packagesPath": "C:\\Users\\mark\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mark\\Documents\\revature\\pizza(API)\\obj\\",
+      "outputPath": "C:\\Users\\mark\\Documents\\revature\\pizza_API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

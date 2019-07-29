@@ -1,7 +1,6 @@
 ﻿using Entity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using pizza_API_.models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +16,11 @@ namespace pizza_API_
         }
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
         public DbSet<Pizza> Pizzas { get; set; }
-        //public DbSet<Order> Orders { get; set; }
+
+        public DbSet<Order> Orders { get; set; }
+
+        public DbSet<Payment> Payment { get; set; }
+        public DbSet <Topping> toppings { get; set; }
+
     }
 }

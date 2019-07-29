@@ -13,7 +13,7 @@ namespace pizza_API_.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [EnableCors]
+    [EnableCors("CorsPolicy")]
     public class PizzasController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
@@ -30,12 +30,13 @@ namespace pizza_API_.Controllers
         //}
 
 
-        // GET: api/Pizzas
+        // GET: api/Pizzas (in shopping cart)
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Pizza>>> GetPizzas()
         {
-            return await _context.Pizzas.ToListAsync();
+            return await _context.Pizzas.Where(p=>p.Order.Ischeckout==false).ToListAsync();
         }
+
 
         // GET: api/Pizzas/5
         [HttpGet("{id}")]
@@ -85,7 +86,34 @@ namespace pizza_API_.Controllers
         [HttpPost]
         public async Task<ActionResult<Pizza>> PostPizza(Pizza pizza)
         {
-            _context.Pizzas.Add(pizza);
+            //get  oderId from cust 
+            // else new order 
+
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            Order existingOrder = _context.Orders.Where(o => o.Ischeckout == false).FirstOrDefault();
+            if (existingOrder == null)
+            {
+                var order = new Order
+                {
+                    OrderDate = DateTime.Now,
+                    Ischeckout = false,
+                    UserId = 1
+                };
+                pizza.OrderId = order.OrderId;
+                _context.Orders.Add(order);
+                _context.Pizzas.Add(pizza);
+            }
+            else
+            {
+                pizza.OrderId = existingOrder.OrderId;
+                _context.Pizzas.Add(pizza);
+            }
+
+
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetPizza", new { id = pizza.PizzaId }, pizza);

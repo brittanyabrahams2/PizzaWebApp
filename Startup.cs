@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Entity;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
@@ -11,7 +12,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using pizza_API_.models;
 
 namespace pizza_API_
 {
@@ -31,10 +31,11 @@ namespace pizza_API_
             {
                 options.AddPolicy("CorsPolicy",
                     builder =>
-                    builder.WithOrigins("https://localhost:44327", "http://localhost:44327")
+                    builder.WithOrigins("http://localhost:4200", "https://localhost:4200", "https://localhost:44327", "http://localhost:44327" )
                     .AllowAnyMethod()
                     .AllowAnyHeader()
                     .AllowCredentials());
+              
             });
             services.AddDbContext<ApplicationDbContext>(options =>
                options.UseSqlServer(

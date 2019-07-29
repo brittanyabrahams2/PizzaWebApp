@@ -19,29 +19,129 @@ namespace pizza_API_.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("Entity.Customer", b =>
+                {
+                    b.Property<int>("CustomerId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Address");
+
+                    b.Property<string>("City");
+
+                    b.Property<string>("Firstname");
+
+                    b.Property<string>("Lastname");
+
+                    b.Property<string>("Password");
+
+                    b.Property<int>("PhoneNo");
+
+                    b.Property<string>("State");
+
+                    b.Property<string>("Username");
+
+                    b.Property<int>("Zip");
+
+                    b.HasKey("CustomerId");
+
+                    b.ToTable("Customer");
+                });
+
+            modelBuilder.Entity("Entity.Order", b =>
+                {
+                    b.Property<int>("OrderId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("Ischeckout");
+
+                    b.Property<DateTime>("OrderDate");
+
+                    b.Property<double>("Price");
+
+                    b.Property<int>("UserId");
+
+                    b.Property<string>("UserId1");
+
+                    b.HasKey("OrderId");
+
+                    b.HasIndex("UserId1");
+
+                    b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("Entity.Payment", b =>
+                {
+                    b.Property<int>("PaymentId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CVV");
+
+                    b.Property<string>("CardNo");
+
+                    b.Property<int?>("CustomerId");
+
+                    b.Property<string>("ExpirationDate");
+
+                    b.Property<int>("OrderId");
+
+                    b.Property<decimal>("TotalAmount");
+
+                    b.Property<int>("UserId");
+
+                    b.Property<string>("UserId1");
+
+                    b.HasKey("PaymentId");
+
+                    b.HasIndex("CustomerId");
+
+                    b.HasIndex("UserId1");
+
+                    b.ToTable("Payment");
+                });
+
             modelBuilder.Entity("Entity.Pizza", b =>
                 {
                     b.Property<int>("PizzaId")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Price");
+                    b.Property<int>("OrderId");
+
+                    b.Property<double>("Price");
 
                     b.Property<string>("Size");
 
-                    b.Property<int>("ToppingId1");
+                    b.Property<int?>("ToppingId1");
 
-                    b.Property<int>("ToppingId2");
+                    b.Property<int?>("ToppingId2");
 
-                    b.Property<int>("ToppingId3");
+                    b.Property<int?>("ToppingId3");
 
-                    b.Property<int>("ToppingId4");
+                    b.Property<int?>("ToppingId4");
 
-                    b.Property<int>("ToppingId5");
+                    b.Property<int?>("ToppingId5");
 
                     b.HasKey("PizzaId");
 
                     b.ToTable("Pizzas");
+                });
+
+            modelBuilder.Entity("Entity.Topping", b =>
+                {
+                    b.Property<int>("ToppingId")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name");
+
+                    b.Property<double>("Price");
+
+                    b.HasKey("ToppingId");
+
+                    b.ToTable("toppings");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -214,7 +314,7 @@ namespace pizza_API_.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("pizza_API_.models.ApplicationUser", b =>
+            modelBuilder.Entity("Entity.ApplicationUser", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
 
@@ -223,6 +323,24 @@ namespace pizza_API_.Migrations
                     b.Property<string>("LastName");
 
                     b.HasDiscriminator().HasValue("ApplicationUser");
+                });
+
+            modelBuilder.Entity("Entity.Order", b =>
+                {
+                    b.HasOne("Entity.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId1");
+                });
+
+            modelBuilder.Entity("Entity.Payment", b =>
+                {
+                    b.HasOne("Entity.Customer", "customer")
+                        .WithMany()
+                        .HasForeignKey("CustomerId");
+
+                    b.HasOne("Entity.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId1");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
