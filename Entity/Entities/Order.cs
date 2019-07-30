@@ -8,10 +8,11 @@ namespace Entities
 {
     public class Order
     {
-        [Key]
+    
         public int OrderId { get; set; }
         [ForeignKey("Customer")]
         public int CustomerId { get; set; }
+      
         public double Price { get; set; }
         public bool IsDelivered { get; set; }
         public DateTime OrderDate { get; set; }

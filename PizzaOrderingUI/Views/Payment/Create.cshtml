@@ -1,0 +1,134 @@
+﻿@using Microsoft.AspNetCore.Http
+@model Entities.Payment
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h2>Make Payment</h2>
+
+<table>
+    <tr>
+        <td width="13%" align="center" bgcolor="dodgerblue">
+            <font color="white"><b>Order</b></font>
+        </td>
+    </tr>
+</table>
+
+<div class="container">
+    <div class="form-group">
+        <label for="customerid"><b>customerId</b></label>
+        <input asp-for="CustomerId" type="text"  readonly="readonly" class="form-control" id="customer" value=@Context.Session.GetString("CustomerId") />
+    </div>
+
+    <br />
+    <div class="form-group">
+
+        <label ><b>CardNo.</b></label>
+
+        <input type="text" class="form-control" id="cardno" />
+
+    </div>
+    <br />
+    <div class="form-group">
+
+        <label ><b>CVV &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+
+        <input type="text" class="form-control" id="cvv" />
+
+    </div>
+    <div class="form-group">
+
+        <label><b>Expiration Date </b> </label>
+
+        <input type="date" class="form-control" id="exdate" />
+
+    </div>
+    <br />
+    <br />
+    @*<div class="form-group">
+
+            <label for="address"><b>Address </b> </label>
+
+            <input type="text" class="form-control" id="address" />
+
+        </div><div class="form-group">
+
+        <label for="address"><b></b></label>
+
+        <input type="text" class="form-control" id="address" />
+
+    </div>
+        *@
+    <br />
+    -----------------------------------------------------------------------------------------------------------------------------------------------
+    <div class="form-group">
+
+        <label ><b>Amount </b> </label>
+
+        <p  type="text" id="amount"  ></p>
+
+    </div>
+    <br />
+    <div>
+
+        <button class="btn btn-default" id="payment">Place Order</button>
+
+    </div>
+
+</div>
+<script>
+
+
+    $(document).ready(function (e) {
+        $.ajax({
+            contentType: 'applciation/json',
+            type: "GET",
+            url: "http://localhost:54241/api/Orders/" + @Context.Session.GetInt32("OrderId"),
+            success(data, textStatus, jqXHR) {
+                $('#amount').text(data.price);
+            },
+            error(jqXHR, textStatus, erorThrown) {
+
+            }
+
+        });
+
+    });
+   
+
+
+    $('#payment').click(function (e) {
+        var url = "http://localhost:54241/api/Payments";
+
+
+
+        $.ajax({
+            contentType: 'application/json',
+            type: "POST",
+            url: url,
+            data: JSON.stringify({
+                CustomerId: parseInt($('#customer').val()),
+                CardNo: $('#cardno').val(),
+                ExpirationDate: $('#exdate').val(),
+                CVV: $('#cvv').val(),
+                Amount: $('#amount').text()
+            }),
+            
+            success: function (data, textStatus, jqXHR) {
+
+                $("#postResult").val("Payment accepted. Id=" + jqXHR.responseText);
+                window.location.href = "http://localhost:54597/Pizza/ConfirmationView";
+
+
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                $("#postResult").val(jqXHR.statusText);
+                console.log(data);
+            }
+        });
+
+    });
+
+</script>

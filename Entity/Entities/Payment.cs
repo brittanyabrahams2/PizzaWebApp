@@ -9,14 +9,11 @@ namespace Entities
     {
         [Key]
         public string CardNo { get; set; }
-        public Customer customer { get; set; }
+        public int CustomerId { get; set; }
         public string ExpirationDate { get; set; }
         public string CVV { get; set; }
         public decimal Amount { get; set; }
-        
        
-
-
 
     }
 }

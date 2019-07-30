@@ -43,6 +43,17 @@ namespace PizzaOrderingUI.Controllers
             return View(pizzas);
         }
 
+
+
+        public ActionResult ConfirmationView()
+        {
+            if (HttpContext.Session.GetString("CustomerId") != null)
+            {
+                return View();
+            }
+            return Content("Please login");
+        }
+
         // GET: Pizza
         public ActionResult Index()
         {
@@ -94,6 +105,7 @@ namespace PizzaOrderingUI.Controllers
         {
             if (HttpContext.Session.GetString("CustomerId") != null)
             {
+                
                 return View();
             }
             return Content("You can not create pizza without login");
@@ -102,7 +114,7 @@ namespace PizzaOrderingUI.Controllers
         // POST: Pizza/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection,int[] ToppingList)
+        public ActionResult Create(IFormCollection collection,int[] ToppingList,string id)
         {
             try
             {
@@ -114,6 +126,13 @@ namespace PizzaOrderingUI.Controllers
             {
                 return View();
             }
+        }
+
+        public ActionResult OrderSession(int OrderId)
+        {
+            HttpContext.Session.SetInt32("OrderId", OrderId); //set OrderID use to get amount in Payment
+          
+            return RedirectToAction("Index", "Home"); //jquery redirecto to new url, so this redirectToAction will not work
         }
 
         // GET: Pizza/Edit/5

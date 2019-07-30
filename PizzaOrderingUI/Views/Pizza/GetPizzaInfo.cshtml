@@ -1,4 +1,6 @@
-﻿@model Entities.ViewModel
+﻿@using Microsoft.AspNetCore.Http;
+
+@model Entities.ViewModel
 @{
     ViewData["Title"] = "GetPizzaInfo";
 }
@@ -22,7 +24,8 @@
              
 
                     <div class="form-group">
-
+                        <input type="hidden" id="id" value=@Context.Session.GetString("CustomerId")>
+                       
                         <div id="toppingList"></div>
 
                         <div id="shoppingcart"></div>
@@ -131,20 +134,27 @@
 
                     $("#toppingList").append("<h2>Toppings:</h2>");
                     for (var item of Object.values(data.toppings)) {
-                        $("#toppingList").append(`<input type='checkbox' name='ToppingList' id='topping${++Id}'value="${item.id}"/>`);
+                        $("#toppingList").append(`<input type='checkbox' class="ToppingList" name='ToppingList' id='topping${++Id}'value="${item.id}"/>`);
                         $("#toppingList").append(`<label>${item.toppingName}($${item.toppingPrice})</label>`);
                         
                     }
-                   
+
+
 
                     $('#topping1').attr('checked', 'checked');
-                     $('#topping2').attr('checked', 'checked');
+                    $('#topping2').attr('checked', 'checked');
+
+                    let limit = 5;
+                    $('.ToppingList').on('change', function () {
+                        if ($('.ToppingList:checked').length > limit) {
+                            this.checked = false;
+                            alert("Can not select more than 5 toppings")
+                       }
+                    });
                    
                   
                     Id = 0;
                    
-
-
 
 
 
@@ -157,60 +167,82 @@
 
         $('#addPizza').click(function (e) {
 
-            var sizeid = parseInt($("input[name='size']:checked").val());
-            var sauceAmountid =  parseInt($("input[name='sauceAmount']:checked").val());
-            var sauceid =  parseInt($("input[name='sauce']:checked").val());
-            var cheeseAmountid =   parseInt($("input[name='cheeseAmount']:checked").val());
-            var crustid = parseInt($("input[name='crust']:checked").val());
-            var list = [];
-             $.each($("input[name='ToppingList']:checked"), function () {
-                 list.push($(this).val());
-              });
-
-
-            var url = "http://localhost:54241/api/Pizzas/";
-         
-        $.ajax({
-            contentType: 'application/json',
-            type: "POST",
-            url: url,
-            data: JSON.stringify({
-                SizeId: sizeid,
-                SauceId:sauceid,
-                SauceAmountId: sauceAmountid,
-                CheeseAmountId: cheeseAmountid,
-                CrustId: crustid,
-                OrderId: 100,
-                ToppingCount: list.length,
-                Price: 0,
-                ToppinIdList: list
-
-            }),
-
+            console.log("Create Order..");
            
-            success: function (data, textStatus, jqXHR) {
-              
-                console.log("Create pizza..");
-                console.log(data.PizzaId);
-                $.get("/Customer/OrderSession/", { OrderId: 100 }, function (data) {
-            
-                  
-             });  
-                window.location.href = "http://localhost:54597/Pizza/CreatePizzaIndex/" + data.PizzaId;
-              
-          
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                $("#postResult").val(jqXHR.statusText);
-             
-            }
+
+            $.ajax({
+                contentType: 'application/json',
+                type: "POST",
+                url: "http://localhost:54241/api/Orders/",
+                data: JSON.stringify({
+                    OrderId: Math.floor((Math.random() * 2000000000) + 10000000),
+                    CustomerId: $('#id').val(),
+                    Price: 0,
+                    IsDelivered: false,
+                    OrderDate: `@DateTime.Now`
+
+                }),
+
+
+                success: function (data, textStatus, jqXHR) {
+
+                    console.log("Create pizza..");
+                    console.log(data.PizzaId);
+                    var sizeid = parseInt($("input[name='size']:checked").val());
+                    var sauceAmountid = parseInt($("input[name='sauceAmount']:checked").val());
+                    var sauceid = parseInt($("input[name='sauce']:checked").val());
+                    var cheeseAmountid = parseInt($("input[name='cheeseAmount']:checked").val());
+                    var crustid = parseInt($("input[name='crust']:checked").val());
+                    var list = [];
+                    $.each($("input[name='ToppingList']:checked"), function () {
+                        list.push($(this).val());
+                    });
+
+
+                    $.ajax({
+                        contentType: 'application/json',
+                        type: "POST",
+                        url: "http://localhost:54241/api/Pizzas/",
+                        data: JSON.stringify({
+                            PizzaId: Math.floor((Math.random() * 2000000000) + 10000000),
+                            SizeId: sizeid,
+                            SauceId: sauceid,
+                            SauceAmountId: sauceAmountid,
+                            CheeseAmountId: cheeseAmountid,
+                            CrustId: crustid,
+                            OrderId: data.orderId,
+                            ToppingCount: list.length,
+                            Price: 0,
+                            ToppinIdList: list,
+
+                        }),
+
+
+                        success: function (data, textStatus, jqXHR) {
+                            $.get("/Pizza/OrderSession/", { OrderId: data.orderId}, function (data) {
+                             window.location.href = "http://localhost:54597/Payment/Create";
+                    });  
+                           
+
+
+                        },
+                        error: function (jqXHR, textStatus, errorThrown) {
+                            $("#postResult").val(jqXHR.statusText);
+
+                        }
+                    });
+
+
+
+
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    $("#postResult").val(jqXHR.statusText);
+
+                }
+            });
         });
 
-            console.log(Math.floor((Math.random() * 2000000000) + 10000000));
-            $("#shoppingcart").append("<p>" + "Size: " + sizeid + "</p>");
-                
 
-
-        });
-
+        
     </script>

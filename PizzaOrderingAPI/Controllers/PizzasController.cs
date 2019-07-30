@@ -9,6 +9,7 @@ using Entities;
 using PizzaOrderingAPI.Models;
 using Microsoft.AspNetCore.Cors;
 
+
 namespace PizzaOrderingAPI.Controllers
 {
     [Route("api/[controller]")]
@@ -158,8 +159,18 @@ namespace PizzaOrderingAPI.Controllers
         
 
             pizza.Price = pizza.getTotalPrice(priceModel); // calculate total price
-          
+
+
+
+
+            var modifyOrder = _context.Order.Find(pizza.OrderId);
+            modifyOrder.Price = pizza.Price;
+            
+
             _context.Pizza.Add(pizza);
+            _context.Entry(modifyOrder).State = EntityState.Modified;
+
+            //_context.Order.Add(order);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetPizza", new { id = pizza.PizzaId }, pizza);
