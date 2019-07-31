@@ -67,7 +67,7 @@ namespace PizzaOrderingUI.Controllers
             {
                 return View();
             }
-            return Content("You can not order pizza without login");
+            return RedirectToAction("Login","Customer");
         }
 
 

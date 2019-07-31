@@ -201,7 +201,7 @@ using PizzaOrderingUI.Models;
             WriteLiteral("\r\n        </dd>\r\n      \r\n    </dl>\r\n</div>\r\n<div>\r\n    ");
             EndContext();
             BeginContext(1670, 59, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a9072d3b6f3e453b94333f7892318fe6", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f3c81bac4cbf42eb935b6460adb4ad3f", async() => {
                 BeginContext(1721, 4, true);
                 WriteLiteral("Edit");
                 EndContext();
@@ -236,7 +236,7 @@ using PizzaOrderingUI.Models;
             WriteLiteral(" |\r\n    ");
             EndContext();
             BeginContext(1737, 49, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a7904b8a59e540afaf4f7df6b7a6560e", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "47254bd42c704817abcc029d1ef64687", async() => {
                 BeginContext(1770, 12, true);
                 WriteLiteral("Back to List");
                 EndContext();

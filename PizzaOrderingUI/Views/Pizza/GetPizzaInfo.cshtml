@@ -45,6 +45,8 @@
 
 
     <script>
+
+    
  
 
 
@@ -60,11 +62,11 @@
                     var Id = 0;
                     //Size
 
-                    $("#toppingList").append("<h2>Size</h2>");
+                    $("#toppingList").append("<h2 class='ordering-options'>Size</h2>");
                     for (var item of Object.values(data.sizes)) {
 
                         $("#toppingList").append(`<input id='size${++Id}' type='radio' name='size' value="${item.id}" /> `);
-                        $("#toppingList").append(`<label>${item.sizeName}($${item.price})</label>`);
+                        $("#toppingList").append(`<label>($${item.price})${item.sizeName}</label>`);
                     }
 
                     $('#size1').attr('checked', 'checked');
@@ -74,11 +76,11 @@
                     //Crust
                    
                 
-                       $("#toppingList").append("<h2>Crust</h2>");
+                       $("#toppingList").append("<h2 class='ordering-options'>Crust</h2>");
                    
                     for (var item of Object.values(data.crusts)) {
                         $("#toppingList").append(`<input id='crust${++Id}' type='radio' name='crust' value="${item.id}"  />`);
-                        $("#toppingList").append(`<label>${item.crustName}($${item.price})</label>`);
+                        $("#toppingList").append(`<label>($${item.price})${item.crustName}</label>`);
                         console.log("Curst: " + item.id);
                     }
 
@@ -92,10 +94,10 @@
 
                      
                    
-                    $("#toppingList").append("<h2>Sauce:</h2>");
+                    $("#toppingList").append("<h2 class='ordering-options'>Sauce:</h2>");
                     for (var item of Object.values(data.sauces)) {
                         $("#toppingList").append(`<input type='radio' name='sauce' id='sauce${++Id}' value="${item.id}" />`);
-                        $("#toppingList").append(`<label>${item.sauceName}($${item.price})</label>`);
+                        $("#toppingList").append(`<label>($${item.price})${item.sauceName}</label>`);
                     }
 
                      $('#sauce1').attr('checked', 'checked');
@@ -105,10 +107,10 @@
                   
 
                     //Sauce Amount
-                    $("#toppingList").append("<h2>Sauce Amount:</h2>");
+                    $("#toppingList").append("<h2 class='ordering-options'>Sauce Amount:</h2>");
                     for (var item of Object.values(data.sauceAmounts)) {
                         $("#toppingList").append(`<input type='radio' id='sauceAmount${++Id}' name='sauceAmount' value="${item.id}"/>`);
-                        $("#toppingList").append(`<label>${item.amount}($${item.price})</label>`);
+                        $("#toppingList").append(`<label>($${item.price})${item.amount}</label>`);
                     }
                        $('#sauceAmount1').attr('checked', 'checked');
                    
@@ -118,27 +120,28 @@
 
                     //Cheese Amount
 
-                    $("#toppingList").append("<h2>Cheese Amount:</h2>");
+                    $("#toppingList").append("<h2 class='ordering-options'>Cheese Amount:</h2>");
                     for (var item of Object.values(data.cheeseAmounts)) {
                         $("#toppingList").append(`<input type='radio' id='cheeseAmount${++Id}' name='cheeseAmount' value="${item.id}" />`);
-                        $("#toppingList").append(`<label>${item.amount}($${item.price})</label>`);
+                        $("#toppingList").append(`<label>($${item.price})${item.amount}</label>`);
                     }
                        $('#cheeseAmount1').attr('checked', 'checked');
                    
                     
                     Id = 0;
-                    
+
+
 
 
                     //Toppings
 
-                    $("#toppingList").append("<h2>Toppings:</h2>");
+                    $("#toppingList").append("<h2 class='ordering-options'>Toppings:</h2>");
+                     
                     for (var item of Object.values(data.toppings)) {
                         $("#toppingList").append(`<input type='checkbox' class="ToppingList" name='ToppingList' id='topping${++Id}'value="${item.id}"/>`);
-                        $("#toppingList").append(`<label>${item.toppingName}($${item.toppingPrice})</label>`);
-                        
-                    }
+                        $("#toppingList").append(`<label>($${item.toppingPrice})${item.toppingName}</label>`);
 
+                    }
 
 
                     $('#topping1').attr('checked', 'checked');
@@ -151,13 +154,9 @@
                             alert("Can not select more than 5 toppings")
                        }
                     });
-                   
-                  
+                         
                     Id = 0;
                    
-
-
-
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     $("#getToppingResult").val(jqXHR.statusText);
@@ -221,7 +220,7 @@
                         success: function (data, textStatus, jqXHR) {
                             $.get("/Pizza/OrderSession/", { OrderId: data.orderId}, function (data) {
                              window.location.href = "http://localhost:54597/Payment/Create";
-                    });  
+                      });  
                            
 
 
@@ -231,7 +230,6 @@
 
                         }
                     });
-
 
 
 

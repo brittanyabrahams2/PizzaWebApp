@@ -123,15 +123,27 @@ namespace PizzaOrderingAPI.Controllers
        [HttpPost]
         public async Task<IActionResult> Register([FromBody] Customer customer)
         {
-            if (!ModelState.IsValid)
+
+           
+             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            _context.Customer.Add(customer);
-            await _context.SaveChangesAsync();
+            if (_context.Customer.Any(x => x.Username == customer.Username))
+            {
+                return Content("Failed, username already existed");
+            }
+            else
+            {
+                _context.Customer.Add(customer);
+               await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetCustomer", new { id = customer.CustomerId }, customer);
+              
+            }
+
+           
         }
 
         // DELETE: api/Customers/5

@@ -4,33 +4,36 @@
     ViewData["Title"] = "Login";
 }
 
-<h2>Login</h2>
+<head>
+    <link rel="stylesheet" href="~/css/ui.css" />
+</head>
+
+
+
+
 
 <body>
     <div class="row">
         <div class="col-md-4 ">
-
+            <h2>Login</h2>
             <div class="form-group">
                 <label asp-for="Username" label class="control-label">UserName</label>
-                <input asp-for="Username" id="username" class="form-control" placeholder="Enter User Name">
+                <input id="username" class="form-control" placeholder="Enter User Name" required />
                 <span asp-validation-for="Username" class="text-danger"></span>
+
             </div>
 
             <div class="form-group">
                 <label asp-for="Password" class="control-label">Password</label>
-                <input asp-for="Password" id="password" type="password" class="form-control" placeholder="Enter Passowrd">
+                <input id="password" type="password" class="form-control" placeholder="Enter Passowrd" required>
                 <span asp-validation-for="Password" class="text-danger"></span>
+
             </div>
+            <p style="color:red;" id="failedMessage"></p>
 
             <div class="form-group">
-                <input id="login" type="submit" value="Login" class="btn btn-default" />
-            </div>
-            <p id="result"></p>
-
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-8">
-                    <label class="label-success">@ViewBag.LoginSucceed</label>
-                </div>
+                <input class="btn-hover color-login" id="login" type="submit" value="Login"  />
+            
             </div>
 
             <div class="form-group">
@@ -40,6 +43,8 @@
             </div>
 
             <input type="hidden" name="id">
+
+          
 
 
 
@@ -53,35 +58,46 @@
 <script>
     $("#loginfailed").hide();
 
+
     $('#login').click(function (e) {
-          $("result").val("");
-        var url = "http://localhost:54241/api/Customers/" + $('#username').val() + ',' + $('#password').val();
-
+            
+         if ($('#username').val() !== "" && $('#password').val() !== "") {
        
-        $.ajax({
-            contentType: 'application/json',
-            type: "GET",
-            url: url,
-
-            success: function (data, textStatus, jqXHR) {
-      
-                $.get("/Customer/Session/", { id: data.customerId, username: data.username }, function (data) {
-                    window.location.href = "http://localhost:54597/Home/Index";
-                  
-             });  
+             $('#failedMessage').text("");
+            var url = "http://localhost:54241/api/Customers/" + $('#username').val() + ',' + $('#password').val();
 
 
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                $("#result").val(jqXHR.statusText);
-                $("#loginfailed").show();
-                //display loginfailed message to user
-                $.get("/Customer/LoginFailed",{}, function (data) {
-                    
-                  
-                 });  
+            $.ajax({
+                contentType: 'application/json',
+                type: "GET",
+                url: url,
 
+                success: function (data, textStatus, jqXHR) {
+
+                    $.get("/Customer/Session/", { id: data.customerId, username: data.username }, function (data) {
+                        window.location.href = "http://localhost:54597/Home/Index";
+
+                    });
+
+
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    $("#result").val(jqXHR.statusText);
+                    $("#loginfailed").show();
+                    //display loginfailed message to user
+                    $.get("/Customer/LoginFailed", {}, function (data) {
+
+
+                    });
+
+                }
+            });
+
+
+              }
+            else {
+                $('#failedMessage').text("Empty username or password");
             }
         });
-    });
+   
 </script>
