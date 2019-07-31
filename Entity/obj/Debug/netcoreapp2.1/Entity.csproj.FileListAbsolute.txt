@@ -1,0 +1,33 @@
+C:\Users\z8410\Desktop\revature\PizzaOrderingAPI\PizzaOrderingAPI\Entity\bin\Debug\netcoreapp2.1\Entity.deps.json
+C:\Users\z8410\Desktop\revature\PizzaOrderingAPI\PizzaOrderingAPI\Entity\bin\Debug\netcoreapp2.1\Entity.dll
+C:\Users\z8410\Desktop\revature\PizzaOrderingAPI\PizzaOrderingAPI\Entity\bin\Debug\netcoreapp2.1\Entity.pdb
+C:\Users\z8410\Desktop\revature\PizzaOrderingAPI\PizzaOrderingAPI\Entity\obj\Debug\netcoreapp2.1\Entity.csprojAssemblyReference.cache
+C:\Users\z8410\Desktop\revature\PizzaOrderingAPI\PizzaOrderingAPI\Entity\obj\Debug\netcoreapp2.1\Entity.csproj.CoreCompileInputs.cache
+C:\Users\z8410\Desktop\revature\PizzaOrderingAPI\PizzaOrderingAPI\Entity\obj\Debug\netcoreapp2.1\Entity.AssemblyInfoInputs.cache
+C:\Users\z8410\Desktop\revature\PizzaOrderingAPI\PizzaOrderingAPI\Entity\obj\Debug\netcoreapp2.1\Entity.AssemblyInfo.cs
+C:\Users\z8410\Desktop\revature\PizzaOrderingAPI\PizzaOrderingAPI\Entity\obj\Debug\netcoreapp2.1\Entity.dll
+C:\Users\z8410\Desktop\revature\PizzaOrderingAPI\PizzaOrderingAPI\Entity\obj\Debug\netcoreapp2.1\Entity.pdb
+C:\Users\z8410\Desktop\revature\PizzaOrderingAPI\PizzaOrderingAPI\Entity\bin\Debug\netcoreapp2.1\Entity.runtimeconfig.json
+C:\Users\z8410\Desktop\revature\PizzaOrderingAPI\PizzaOrderingAPI\Entity\bin\Debug\netcoreapp2.1\Entity.runtimeconfig.dev.json
+C:\Users\z8410\Desktop\copyPizzaOrderingAPI\PizzaOrderingAPI\Entity\bin\Debug\netcoreapp2.1\Entity.deps.json
+C:\Users\z8410\Desktop\copyPizzaOrderingAPI\PizzaOrderingAPI\Entity\bin\Debug\netcoreapp2.1\Entity.runtimeconfig.json
+C:\Users\z8410\Desktop\copyPizzaOrderingAPI\PizzaOrderingAPI\Entity\bin\Debug\netcoreapp2.1\Entity.runtimeconfig.dev.json
+C:\Users\z8410\Desktop\copyPizzaOrderingAPI\PizzaOrderingAPI\Entity\bin\Debug\netcoreapp2.1\Entity.dll
+C:\Users\z8410\Desktop\copyPizzaOrderingAPI\PizzaOrderingAPI\Entity\bin\Debug\netcoreapp2.1\Entity.pdb
+C:\Users\z8410\Desktop\copyPizzaOrderingAPI\PizzaOrderingAPI\Entity\obj\Debug\netcoreapp2.1\Entity.csproj.CoreCompileInputs.cache
+C:\Users\z8410\Desktop\copyPizzaOrderingAPI\PizzaOrderingAPI\Entity\obj\Debug\netcoreapp2.1\Entity.AssemblyInfoInputs.cache
+C:\Users\z8410\Desktop\copyPizzaOrderingAPI\PizzaOrderingAPI\Entity\obj\Debug\netcoreapp2.1\Entity.AssemblyInfo.cs
+C:\Users\z8410\Desktop\copyPizzaOrderingAPI\PizzaOrderingAPI\Entity\obj\Debug\netcoreapp2.1\Entity.dll
+C:\Users\z8410\Desktop\copyPizzaOrderingAPI\PizzaOrderingAPI\Entity\obj\Debug\netcoreapp2.1\Entity.pdb
+C:\Users\z8410\Desktop\copyPizzaOrderingAPI\PizzaOrderingAPI\Entity\obj\Debug\netcoreapp2.1\Entity.csprojAssemblyReference.cache
+C:\Users\britt\AppData\Local\Packages\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\TempState\Downloads\PizzaWebApp-dev_combine_jz (4)\PizzaWebApp-dev_combine_jz\Entity\bin\Debug\netcoreapp2.1\Entity.deps.json
+C:\Users\britt\AppData\Local\Packages\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\TempState\Downloads\PizzaWebApp-dev_combine_jz (4)\PizzaWebApp-dev_combine_jz\Entity\bin\Debug\netcoreapp2.1\Entity.runtimeconfig.json
+C:\Users\britt\AppData\Local\Packages\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\TempState\Downloads\PizzaWebApp-dev_combine_jz (4)\PizzaWebApp-dev_combine_jz\Entity\bin\Debug\netcoreapp2.1\Entity.runtimeconfig.dev.json
+C:\Users\britt\AppData\Local\Packages\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\TempState\Downloads\PizzaWebApp-dev_combine_jz (4)\PizzaWebApp-dev_combine_jz\Entity\bin\Debug\netcoreapp2.1\Entity.dll
+C:\Users\britt\AppData\Local\Packages\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\TempState\Downloads\PizzaWebApp-dev_combine_jz (4)\PizzaWebApp-dev_combine_jz\Entity\bin\Debug\netcoreapp2.1\Entity.pdb
+C:\Users\britt\AppData\Local\Packages\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\TempState\Downloads\PizzaWebApp-dev_combine_jz (4)\PizzaWebApp-dev_combine_jz\Entity\obj\Debug\netcoreapp2.1\Entity.csprojAssemblyReference.cache
+C:\Users\britt\AppData\Local\Packages\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\TempState\Downloads\PizzaWebApp-dev_combine_jz (4)\PizzaWebApp-dev_combine_jz\Entity\obj\Debug\netcoreapp2.1\Entity.csproj.CoreCompileInputs.cache
+C:\Users\britt\AppData\Local\Packages\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\TempState\Downloads\PizzaWebApp-dev_combine_jz (4)\PizzaWebApp-dev_combine_jz\Entity\obj\Debug\netcoreapp2.1\Entity.AssemblyInfoInputs.cache
+C:\Users\britt\AppData\Local\Packages\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\TempState\Downloads\PizzaWebApp-dev_combine_jz (4)\PizzaWebApp-dev_combine_jz\Entity\obj\Debug\netcoreapp2.1\Entity.AssemblyInfo.cs
+C:\Users\britt\AppData\Local\Packages\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\TempState\Downloads\PizzaWebApp-dev_combine_jz (4)\PizzaWebApp-dev_combine_jz\Entity\obj\Debug\netcoreapp2.1\Entity.dll
+C:\Users\britt\AppData\Local\Packages\Microsoft.MicrosoftEdge_8wekyb3d8bbwe\TempState\Downloads\PizzaWebApp-dev_combine_jz (4)\PizzaWebApp-dev_combine_jz\Entity\obj\Debug\netcoreapp2.1\Entity.pdb
