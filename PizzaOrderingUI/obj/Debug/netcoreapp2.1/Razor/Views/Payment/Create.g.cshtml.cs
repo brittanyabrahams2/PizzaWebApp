@@ -68,7 +68,7 @@ using Microsoft.AspNetCore.Http;
             WriteLiteral("\r\n\r\n\r\n\r\n\r\n<table>\r\n    <tr>\r\n        <td width=\"8%\" align=\"center\" bgcolor=\"#38daae\">\r\n            <h2 color=\"white\">Payment</h2>\r\n        </td>\r\n    </tr>\r\n</table>\r\n\r\n\r\n    <div class=\"form-group\">\r\n\r\n        ");
             EndContext();
             BeginContext(312, 146, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "6b0111cc22ac47bc899c41ef44e632dc", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "2e7effe7707147e2b5cd59986e55e40e", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();

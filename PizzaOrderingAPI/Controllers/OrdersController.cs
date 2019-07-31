@@ -25,7 +25,15 @@ namespace PizzaOrderingAPI.Controllers
         [HttpGet]
         public IEnumerable<Order> GetOrder()
         {
+
             return _context.Order;
+        }
+
+        // GET: api/Orders
+       [HttpGet("customer/{custId}")]
+       public IEnumerable<Order> GetOrderFromCust(int custId)
+        {
+            return _context.Order.Where(o => o.CustomerId == custId).ToList();
         }
 
         // GET: api/Orders/5

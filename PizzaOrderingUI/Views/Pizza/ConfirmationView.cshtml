@@ -3,8 +3,8 @@
     ViewData["Title"] = "ConfirmationView";
 }
 
-<h2>ConfirmationView</h2>
-<h3 style="color:black; font-size:30px;">Your Orderno is : @Context.Session.GetInt32("OrderId")</h3>
+<h2>Confirmation View</h2>
+<h3 style="color:black; font-size:30px;">Your Order #: @Context.Session.GetInt32("OrderId")</h3>
 
 <script>
      $.get("http://localhost:54597/Payment/ClearSession", {}, function (data) {

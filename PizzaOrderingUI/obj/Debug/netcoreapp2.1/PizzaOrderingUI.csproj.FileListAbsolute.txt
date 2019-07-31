@@ -81,3 +81,7 @@ C:\Users\z8410\Desktop\copyPizzaOrderingAPI\PizzaOrderingAPI\PizzaOrderingUI\obj
 C:\Users\z8410\Desktop\copyPizzaOrderingAPI\PizzaOrderingAPI\PizzaOrderingUI\obj\Debug\netcoreapp2.1\Razor\Views\Pizza\Delete.g.cshtml.cs
 C:\Users\z8410\Desktop\copyPizzaOrderingAPI\PizzaOrderingAPI\PizzaOrderingUI\obj\Debug\netcoreapp2.1\Razor\Views\Payment\Create.g.cshtml.cs
 C:\Users\z8410\Desktop\copyPizzaOrderingAPI\PizzaOrderingAPI\PizzaOrderingUI\obj\Debug\netcoreapp2.1\Razor\Views\Pizza\ConfirmationView.g.cshtml.cs
+C:\Users\z8410\Desktop\copyPizzaOrderingAPI\PizzaOrderingAPI\PizzaOrderingUI\obj\Debug\netcoreapp2.1\Razor\Views\Order\Delete.g.cshtml.cs
+C:\Users\z8410\Desktop\copyPizzaOrderingAPI\PizzaOrderingAPI\PizzaOrderingUI\obj\Debug\netcoreapp2.1\Razor\Views\Order\Details.g.cshtml.cs
+C:\Users\z8410\Desktop\copyPizzaOrderingAPI\PizzaOrderingAPI\PizzaOrderingUI\obj\Debug\netcoreapp2.1\Razor\Views\Order\Edit.g.cshtml.cs
+C:\Users\z8410\Desktop\copyPizzaOrderingAPI\PizzaOrderingAPI\PizzaOrderingUI\obj\Debug\netcoreapp2.1\Razor\Views\Order\Index.g.cshtml.cs
