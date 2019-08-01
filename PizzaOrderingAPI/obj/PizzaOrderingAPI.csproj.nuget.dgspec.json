@@ -1,77 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\z8410\\Desktop\\copyPizzaOrderingAPI\\PizzaOrderingAPI\\PizzaOrderingAPI\\PizzaOrderingAPI.csproj": {}
+    "C:\\Users\\z8410\\Desktop\\pizza-api-only\\PizzaOrderingAPI\\PizzaOrderingAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\z8410\\Desktop\\copyPizzaOrderingAPI\\PizzaOrderingAPI\\Entity\\Entity.csproj": {
+    "C:\\Users\\z8410\\Desktop\\pizza-api-only\\PizzaOrderingAPI\\PizzaOrderingAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\z8410\\Desktop\\copyPizzaOrderingAPI\\PizzaOrderingAPI\\Entity\\Entity.csproj",
-        "projectName": "Entity",
-        "projectPath": "C:\\Users\\z8410\\Desktop\\copyPizzaOrderingAPI\\PizzaOrderingAPI\\Entity\\Entity.csproj",
-        "packagesPath": "C:\\Users\\z8410\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\z8410\\Desktop\\copyPizzaOrderingAPI\\PizzaOrderingAPI\\Entity\\obj\\",
-        "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
-        "configFilePaths": [
-          "C:\\Users\\z8410\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "netcoreapp2.1"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "netcoreapp2.1": {
-            "projectReferences": {}
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "netcoreapp2.1": {
-          "dependencies": {
-            "Microsoft.AspNetCore.App": {
-              "target": "Package",
-              "version": "[2.1.1, )"
-            },
-            "Microsoft.NETCore.App": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[2.1.0, )",
-              "autoReferenced": true
-            },
-            "Newtonsoft.Json": {
-              "target": "Package",
-              "version": "[12.0.2, )"
-            }
-          },
-          "imports": [
-            "net461"
-          ],
-          "assetTargetFallback": true,
-          "warn": true
-        }
-      }
-    },
-    "C:\\Users\\z8410\\Desktop\\copyPizzaOrderingAPI\\PizzaOrderingAPI\\PizzaOrderingAPI\\PizzaOrderingAPI.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\z8410\\Desktop\\copyPizzaOrderingAPI\\PizzaOrderingAPI\\PizzaOrderingAPI\\PizzaOrderingAPI.csproj",
+        "projectUniqueName": "C:\\Users\\z8410\\Desktop\\pizza-api-only\\PizzaOrderingAPI\\PizzaOrderingAPI.csproj",
         "projectName": "PizzaOrderingAPI",
-        "projectPath": "C:\\Users\\z8410\\Desktop\\copyPizzaOrderingAPI\\PizzaOrderingAPI\\PizzaOrderingAPI\\PizzaOrderingAPI.csproj",
+        "projectPath": "C:\\Users\\z8410\\Desktop\\pizza-api-only\\PizzaOrderingAPI\\PizzaOrderingAPI.csproj",
         "packagesPath": "C:\\Users\\z8410\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\z8410\\Desktop\\copyPizzaOrderingAPI\\PizzaOrderingAPI\\PizzaOrderingAPI\\obj\\",
+        "outputPath": "C:\\Users\\z8410\\Desktop\\pizza-api-only\\PizzaOrderingAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -90,8 +30,8 @@
         "frameworks": {
           "netcoreapp2.1": {
             "projectReferences": {
-              "C:\\Users\\z8410\\Desktop\\copyPizzaOrderingAPI\\PizzaOrderingAPI\\Entity\\Entity.csproj": {
-                "projectPath": "C:\\Users\\z8410\\Desktop\\copyPizzaOrderingAPI\\PizzaOrderingAPI\\Entity\\Entity.csproj"
+              "C:\\Users\\z8410\\Desktop\\pizza-api-only\\Entity\\Entity.csproj": {
+                "projectPath": "C:\\Users\\z8410\\Desktop\\pizza-api-only\\Entity\\Entity.csproj"
               }
             }
           }
@@ -117,6 +57,7 @@
               "version": "[2.1.2, )"
             },
             "Microsoft.NETCore.App": {
+              "suppressParent": "All",
               "target": "Package",
               "version": "[2.1.0, )",
               "autoReferenced": true
