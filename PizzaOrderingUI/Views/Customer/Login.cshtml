@@ -75,7 +75,7 @@
                 success: function (data, textStatus, jqXHR) {
 
                     $.get("/Customer/Session/", { id: data.customerId, username: data.username }, function (data) {
-                        window.location.href = "http://localhost:54597/Home/Index";
+                        window.location.href = "https://pizzaui.azurewebsites.net/Home/Index";
 
                     });
 

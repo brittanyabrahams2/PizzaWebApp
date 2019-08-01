@@ -2751,7 +2751,7 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
-      "Newtonsoft.Json/12.0.2": {
+      "Newtonsoft.Json/11.0.2": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
@@ -4614,20 +4614,6 @@
         },
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XDocument.dll": {}
-        }
-      },
-      "Entity/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v2.1",
-        "dependencies": {
-          "Microsoft.AspNetCore.App": "2.1.1",
-          "Newtonsoft.Json": "12.0.2"
-        },
-        "compile": {
-          "bin/placeholder/Entity.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Entity.dll": {}
         }
       }
     }
@@ -7663,10 +7649,10 @@
         "netstandard.library.nuspec"
       ]
     },
-    "Newtonsoft.Json/12.0.2": {
-      "sha512": "rTK0s2EKlfHsQsH6Yx2smvcTCeyoDNgCW7FEYyV01drPlh2T243PR2DiDXqtC5N4GDm4Ma/lkxfW5a/4793vbA==",
+    "Newtonsoft.Json/11.0.2": {
+      "sha512": "IvJe1pj7JHEsP8B8J8DwlMEx8UInrs/x+9oVY+oCD13jpLu4JbJU2WCIsMRn5C4yW9+DgkaO8uiVE5VHKjpmdQ==",
       "type": "package",
-      "path": "newtonsoft.json/12.0.2",
+      "path": "newtonsoft.json/11.0.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -7689,7 +7675,7 @@
         "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.xml",
         "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll",
         "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
-        "newtonsoft.json.12.0.2.nupkg.sha512",
+        "newtonsoft.json.11.0.2.nupkg.sha512",
         "newtonsoft.json.nuspec"
       ]
     },
@@ -12540,16 +12526,11 @@
         "system.xml.xpath.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xpath.xdocument.nuspec"
       ]
-    },
-    "Entity/1.0.0": {
-      "type": "project",
-      "path": "../Entity/Entity.csproj",
-      "msbuildProject": "../Entity/Entity.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
-      "Entity >= 1.0.0",
+      "C:\\Users\\z8410\\Desktop\\pizza-ui\\Entity\\Entity.csproj",
       "Microsoft.AspNetCore.App >= 2.1.1",
       "Microsoft.AspNetCore.Razor.Design >= 2.1.2",
       "Microsoft.NETCore.App >= 2.1.0",
@@ -12563,11 +12544,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\z8410\\Desktop\\copyPizzaOrderingAPI\\PizzaOrderingAPI\\PizzaOrderingUI\\PizzaOrderingUI.csproj",
+      "projectUniqueName": "C:\\Users\\z8410\\Desktop\\pizza-ui\\PizzaOrderingUI\\PizzaOrderingUI.csproj",
       "projectName": "PizzaOrderingUI",
-      "projectPath": "C:\\Users\\z8410\\Desktop\\copyPizzaOrderingAPI\\PizzaOrderingAPI\\PizzaOrderingUI\\PizzaOrderingUI.csproj",
+      "projectPath": "C:\\Users\\z8410\\Desktop\\pizza-ui\\PizzaOrderingUI\\PizzaOrderingUI.csproj",
       "packagesPath": "C:\\Users\\z8410\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\z8410\\Desktop\\copyPizzaOrderingAPI\\PizzaOrderingAPI\\PizzaOrderingUI\\obj\\",
+      "outputPath": "C:\\Users\\z8410\\Desktop\\pizza-ui\\PizzaOrderingUI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -12586,8 +12567,8 @@
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Users\\z8410\\Desktop\\copyPizzaOrderingAPI\\PizzaOrderingAPI\\Entity\\Entity.csproj": {
-              "projectPath": "C:\\Users\\z8410\\Desktop\\copyPizzaOrderingAPI\\PizzaOrderingAPI\\Entity\\Entity.csproj"
+            "C:\\Users\\z8410\\Desktop\\pizza-ui\\Entity\\Entity.csproj": {
+              "projectPath": "C:\\Users\\z8410\\Desktop\\pizza-ui\\Entity\\Entity.csproj"
             }
           }
         }
@@ -12630,5 +12611,16 @@
         "warn": true
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1105",
+      "level": "Error",
+      "message": "Unable to find project information for 'C:\\Users\\z8410\\Desktop\\pizza-ui\\Entity\\Entity.csproj'. Inside Visual Studio, this may be because the project is unloaded or not part of current solution so please run a restore from command-line. Otherwise the project file may be invalid or missing targets required for restore.",
+      "libraryId": "C:\\Users\\z8410\\Desktop\\pizza-ui\\Entity\\Entity.csproj",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.1"
+      ]
+    }
+  ]
 }
