@@ -1,0 +1,140 @@
+﻿@using Microsoft.AspNetCore.Http
+@model Entities.Payment
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+
+
+
+<table>
+    <tr>
+        <td width="8%" align="center" bgcolor="#38daae">
+            <h2 color="white">Payment</h2>
+        </td>
+    </tr>
+</table>
+
+
+    <div class="form-group">
+
+        <input asp-for="CustomerId" type="hidden" readonly="readonly" class="form-control" id="customer" value=@Context.Session.GetString("CustomerId") />
+    </div>
+
+    <br>
+
+    <div class="form-group">
+
+        <label><b>Total Amount: </b> </label>
+        <br>
+        <label class="amountStyle" style="color: darkred;">$</label>
+        <h1 type="text" id="amount"></h1>
+
+    </div>
+    <div class="row">
+        <div class="form-group">
+
+            <label><b>CardNo.</b></label>
+
+            <input type="text" class="form-control" id="cardno" maxlength="18"  />
+
+        </div>
+        <br>
+        <div class="form-group">
+
+            <label><b>CVV</b></label>
+
+            <input type="text" min="0" class="form-control" id="cvv"  maxlength="4" />
+
+        </div>
+        <div class="form-group">
+
+            <label><b>Expiration Date </b> </label>
+
+            <input type="date" min="2019-08-01" class="form-control" id="exdate"  required/>
+
+        </div>
+        <br>
+        <br>
+
+
+
+
+        <br />
+      
+
+    </div>
+  <div>
+
+            <button class="btn-hover color-payment" id="payment">Place Order</button>
+
+        </div>
+
+
+<script>
+
+  
+    $(document).ready(function (e) {
+        $.ajax({
+            contentType: 'applciation/json',
+            type: "GET",
+            url: "http://localhost:54241/api/Orders/" + @Context.Session.GetInt32("OrderId"),
+            success(data, textStatus, jqXHR) {
+                $('#amount').text(data.price);
+            },
+            error(jqXHR, textStatus, erorThrown) {
+
+            }
+
+        });
+
+    });
+   
+
+ 
+        $('#payment').click(function (e) {
+            var url = "http://localhost:54241/api/Payments";
+
+            if ($('#cardno').val() !== "" && $('#cvv').val() !== "" && $('#exdate').val() !== "" && $.isNumeric($('#cardno').val()) && $.isNumeric($('#cvv').val()) && $('#cardno').val() >=1 && $('#cvv').val() >=1) {
+
+            $.ajax({
+                contentType: 'application/json',
+                type: "POST",
+                url: url,
+                data: JSON.stringify({
+                    CustomerId: parseInt($('#customer').val()),
+                    CardNo: $('#cardno').val(),
+                    ExpirationDate: $('#exdate').val(),
+                    CVV: $('#cvv').val(),
+                    Amount: $('#amount').text()
+                }),
+
+                success: function (data, textStatus, jqXHR) {
+
+                    $("#postResult").val("Payment accepted. Id=" + jqXHR.responseText);
+                    window.location.href = "http://localhost:54597/Pizza/ConfirmationView";
+
+
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    $("#postResult").val(jqXHR.statusText);
+                    console.log(data);
+                }
+            });
+
+            }
+            else if (!$.isNumeric($('#cardno').val()) || !$.isNumeric($('#cvv').val())){
+
+                 alert("cardno and cvv must be number");
+            }
+            else if (!$('#cardno').val() < 1 || $('#cvv').val() < 1) {
+                alert("cardno and cvv must be greater than 0");
+            }
+
+               else {
+                      alert("All fields must be fulfilled");
+                 }
+        })
+    
+</script>

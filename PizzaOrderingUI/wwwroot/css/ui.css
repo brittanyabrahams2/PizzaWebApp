@@ -1,0 +1,149 @@
+﻿.nav.navbar-nav li a {
+    color: white;
+    background-color: indianred;
+    border: 3px solid gray;
+    border-radius: 8px;
+ 
+    margin-left: 6px;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+
+.nav.navbar-nav a:hover {
+    opacity: 0.5;
+}
+
+/*.navbar-brand {
+    color: white;
+    font-size: 32px;
+    background-image: linear-gradient(to bottom right,white,black);
+    margin-top: 1px;
+    border-radius: 20px 150px 20px 150px;
+}*/
+
+    .navbar-brand:hover {
+        background: gray;
+    }
+
+
+.navbar-fixed-top {
+    margin-top: 0px;
+    padding: 0px;
+}
+
+
+.form-group input {
+    color: white;
+    background-color: dimgray;
+}
+
+.form-group label{
+    color:black;
+}
+h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:black;
+}
+.row{
+    color: white;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+
+.row2 {
+
+   
+}
+h1{
+    color:black;
+}
+.links {
+    border-radius: 10px;
+    width: 13%;
+    background-color: red;
+}
+
+body{
+    color: white;
+}
+
+.ordering-options{
+    background-color: dodgerblue;
+    color: black;
+    height: 50px;
+}
+label{
+    font-size: 22px;
+
+}
+.amountStyle {
+    clear: both;
+    float: left;
+    margin-top :20px;
+
+}
+
+#amount{
+    color:darkred;
+}
+
+.table-black{
+    color:black;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.btn {
+    margin: 0px 0px 0px 200px;
+}
+.btn-hover {
+    width: 150px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+ 
+    height: 55px;
+    text-align: center;
+    border: none;
+    background-size: 300% 100%;
+    border-radius: 50px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+    .btn-hover:hover {
+        background-position: 100% 0;
+        moz-transition: all .4s ease-in-out;
+        -o-transition: all .4s ease-in-out;
+        -webkit-transition: all .4s ease-in-out;
+        transition: all .4s ease-in-out;
+    }
+
+    .btn-hover:focus {
+        outline: none;
+    }
+
+    .btn-hover.color-payment {
+        background-image: linear-gradient(to right, #25aae1, #40e495, #30dd8a, gray);
+        box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
+    }
+    .btn-hover.color-login {
+        background-image: linear-gradient(to right, #25aae1, #25aae1, rgb(126, 130, 214));
+        box-shadow: 0 4px 15px 0 rgb(126, 130, 161);
+    }
+
+    .btn-hover.color-register {
+        background-image: linear-gradient(to right, #40e495, #25aae1, rgb(126, 130, 214));
+        box-shadow: 0 4px 15px 0 rgb(126, 130, 161);
+    }

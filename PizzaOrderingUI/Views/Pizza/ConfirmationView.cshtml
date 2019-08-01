@@ -1,0 +1,15 @@
+@using Microsoft.AspNetCore.Http;
+@{
+    ViewData["Title"] = "ConfirmationView";
+}
+
+<h2>Confirmation View</h2>
+<h3 style="color:black; font-size:30px;">Your Order # : @Context.Session.GetInt32("OrderId")</h3>
+
+<script>
+     $.get("http://localhost:54597/Payment/ClearSession", {}, function (data) {
+            
+      });  
+
+</script >
+
